@@ -1,7 +1,5 @@
 const Joi = require('joi');
 
-
-
 module.exports.userSchemaValidation = Joi.object({
     user: Joi.object({
         name: Joi.string().required(),
