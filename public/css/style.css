@@ -1,0 +1,11 @@
+body {
+    background: linear-gradient(45deg, #D7FFDD, #F5FFED, #E3F6E8, #E3F6E8, #E3F6E8);
+  }
+  
+  .page-header {
+    background: linear-gradient(to right, #37B353, #40734B, #40734B, #40734B  );
+    -webkit-background-clip: text; /* For Safari/Chrome */
+    background-clip: text;
+    color: transparent;
+  }
+  
