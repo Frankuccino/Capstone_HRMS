@@ -19,7 +19,7 @@ router.get('/employees/form', employeesForm);
 router.post('/employees', employeeValidate, addEmployee);
 router.get('/employees/:id', viewEmployee);
 router.get('/employees/:id/update-employee-form', updateEmployeeForm);
-router.patch('/employees/:id', updateEmployee);
+router.patch('/employees/:id',employeeValidate, updateEmployee);
 router.delete('/employees/:id', deleteEmployee);
 
 module.exports = router

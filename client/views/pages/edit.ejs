@@ -1,10 +1,10 @@
 <% layout('/layouts/boilerplate') %>
 
 <div>
-    <h2 class="my-3 text-success">New Employee</h2>
+    <h3 class="page-header">New Employee</h3>
 </div>
 
-<form action="/employees" method="POST" novalidate class="validated-form">
+<form action="/employees/<%= employee._id %>?_method=PATCH" method="POST" novalidate class="validated-form">
     <div class="d-flex">
         <div class="w-50 mx-2 border rounded-3" style="font-size: 0.8em;">
             <div class="mx-3">
@@ -70,6 +70,9 @@
                         <h4 class="text-success my-2">Identification</h4>
                     </div>
                     <div class="w-80 m-3">
+                        <label for="employeeId" class="form-label mt-2">Employee ID: </label>
+                        <input type="text" name="employee[employeeId]" id="employeeId" class="form-control" value="<%= employee.employeeId %>">
+
                         <label for="sssId" class="form-label mt-2">SSS ID: </label>
                         <input type="text" name="employee[sssId]" id="sssId" class="form-control" value="<%= employee.sssId %>">
                         

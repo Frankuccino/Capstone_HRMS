@@ -1,17 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Transactions</h1>
+<% layout('/layouts/boilerplate') %>
+
+
+    <h3 class="page-header">Transactions</h3>
 
     <div>
         <%for(let transaction of transactions) {%>
                 <p><%= transaction.transaction %> - Date: <%= transaction.createdAt %></p>
             <% } %>
     </div>
-</body>
-</html>
+

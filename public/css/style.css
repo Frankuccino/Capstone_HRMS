@@ -9,3 +9,37 @@ body {
     color: transparent;
   }
   
+  .sidebar {
+    padding: 20px;
+    background: #E3F6E8;
+    mix-blend-mode: multiply;
+  }
+  
+  /* Styling for the sidebar heading */
+  .sidebar .grey {
+    color: #333;
+  }
+  
+  /* Styling for the sidebar links */
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar li {
+    margin-bottom: 10px;
+  }
+  
+  .sidebar a {
+    text-decoration: none;
+    color: #838383;
+  }
+  
+  .sidebar a:hover {
+    text-decoration: none;
+    color: #37B353;
+  }
+
+  .sidescroll{
+    color: #37B353;
+  }
