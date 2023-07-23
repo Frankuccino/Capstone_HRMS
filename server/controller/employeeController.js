@@ -1,7 +1,10 @@
 const mongoose =require('mongoose');
+const catchAsync = require('../../utils/catchAsync');
+// Seeds
 const offices = require('../../seeds/offices');
 const positions = require('../../seeds/position');
 const designations = require('../../seeds/designation');
+// Models
 const Employee = require('../../models/employee');
 const Transaction = require('../../models/transaction')
 
@@ -26,7 +29,7 @@ exports.employeesForm = (req, res)=>{
 }
 
 // Add New Employee
-exports.addEmployee = async (req, res)=>{
+exports.addEmployee = catchAsync(async (req, res)=>{
     const employee = req.body.employee;
     const newEmployee = new Employee(employee);
     await newEmployee.save();
@@ -36,30 +39,30 @@ exports.addEmployee = async (req, res)=>{
     const transaction =  new Transaction(addTransaction);
     await transaction.save();
     res.redirect('/employees');
-}
+})
 
 // View Specific Employee
-exports.viewEmployee= async (req, res)=>{
+exports.viewEmployee = catchAsync(async (req, res)=>{
     const id = req.params.id;
     const employee = await Employee.findById(id);
     res.render('pages/emp-info',{employee, activePage})
-}
+})
 
 // View Update Employee Form
-exports.updateEmployeeForm = async (req, res)=>{
+exports.updateEmployeeForm = catchAsync(async (req, res)=>{
     const id = req.params.id;
     const employee = await Employee.findById(id);
     res.render('pages/edit',{employee, offices, positions, designations, activePage});
-}
+})
 
 // Update Employee Form
-exports.updateEmployee = async(req, res) => {
+exports.updateEmployee = catchAsync(async(req, res) => {
     const id = req.params.id;
     const employee = await Employee.findByIdAndUpdate(id,{...req.body.employee});
     res.redirect('/employees')
-}
+})
 
-exports.deleteEmployee = async (req, res) => {
+exports.deleteEmployee = catchAsync(async (req, res) => {
     const id = req.params.id;
     const employee = await Employee.findById(id);
     await Employee.findByIdAndDelete(id);
@@ -70,4 +73,4 @@ exports.deleteEmployee = async (req, res) => {
     const transaction =  new Transaction(addTransaction);
     await transaction.save();
     res.redirect('/employees')
-}
+})

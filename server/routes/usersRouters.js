@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const ExpressError = require('../../utils/ExpressError');
 const { userSchemaValidation } = require("../../schemas");
-const {userView,userForm,addUser,deleteUser,viewUser,editUser,editUserForm } = require('../controller/userController');
+const { userView, userForm, addUser, deleteUser, viewUser, editUser, editUserForm } = require('../controller/userController');
 
 
 const userValidate = (req, res, next) => {

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const catchAsync = require('../../utils/catchAsync');
 
 const activePage = '/leave-management'
 
