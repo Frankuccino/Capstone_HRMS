@@ -118,7 +118,7 @@
                     <select name="employee[designation]" id="designation" class="form-control">
                         <option value="" selected>-Select Designation</option>
                         <% for(let designation of designations)  {%>
-                            <option value="<%= designation %>"<%= employee.desination === designation? 'selected': ''  %>><%= designation %></option>
+                            <option value="<%= designation %>"<%= employee.designation === designation? 'selected': ''  %>><%= designation %></option>
                             <% } %>
                     </select>
                     <br>
