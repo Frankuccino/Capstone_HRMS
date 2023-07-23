@@ -15,20 +15,12 @@ const userValidate = (req, res, next) => {
     }
 }
 
-
-router.get('/users',userView)
-router.get('/users/form',userForm)
-router.post('/users',userValidate,addUser)   
-router.get('/users/:id',viewUser)   
-router.get('/users/:id/edit',editUserForm)
-router.patch('/users/:id',userValidate,editUser)
-router.delete('/users/:id',deleteUser)   
+router.get('/users', userView)
+router.get('/users/form', userForm)
+router.post('/users', userValidate, addUser)   
+router.get('/users/:id', viewUser)   
+router.get('/users/:id/edit', editUserForm)
+router.patch('/users/:id', userValidate, editUser)
+router.delete('/users/:id', deleteUser)   
  
-
-
-
-
-
-
-
 module.exports = router

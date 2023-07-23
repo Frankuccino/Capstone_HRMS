@@ -108,7 +108,7 @@
                     <select name="employee[position]" id="position" class="form-control">
                         <option value="">-Select Position</option>
                         <% for(let position of positions)  {%>
-                            <option value="<%=position %>"><%=position %></option>
+                            <option value="<%= position %>"><%= position %></option>
                             
                             <% } %>
                     </select>
@@ -117,7 +117,7 @@
                     <select name="employee[designation]" id="designation" class="form-control">
                         <option value="" selected>-Select Designation</option>
                         <% for(let designation of designations)  {%>
-                            <option value="<%=designation  %>"><%=designation %></option>
+                            <option value="<%= designation  %>"><%= designation %></option>
                             
                             <% } %>
                     </select>

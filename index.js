@@ -6,7 +6,6 @@ const ejsMate = require('ejs-mate');
 
 
 //user Routers
-
 app.engine('ejs', ejsMate);
 
 const usersRouters = require('./server/routes/usersRouters');
@@ -25,13 +24,9 @@ app.use(express.static('public'));
 //Configure Method override
 app.use(methodOverride('_method'));
 
-
-
-
 app.use('',usersRouters)
 app.use('',employeesRouters)
 app.use('',transactionRouters)
-
 
 app.use('*',(req,res,next)=>{
     next('Page Not Found!',404);

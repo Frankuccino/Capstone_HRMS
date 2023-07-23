@@ -10,15 +10,15 @@
     
     <ul>
         <% for(let user of users) { %>
-            <li> <p>Name: <%= user.name  %> </p>
-                <p>Email: <%= user.email  %> </p>
+            <li> <p>Name: <%= user.name %> </p>
+                <p>Email: <%= user.email %> </p>
 
                 
             </li>
-           <form action="/users/<%=user._id%>?_method=DELETE" method="POST">
+           <form action="/users/<%= user._id %>?_method=DELETE" method="POST">
             <button>Delete</button>
         </form>
-            <a href="/users/<%=user._id%>">View</a>
+            <a href="/users/<%= user._id %>">View</a>
             <% } %>
     </ul>
 </body>

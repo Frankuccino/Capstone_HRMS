@@ -5,7 +5,7 @@
 </div>
 
 <div class="m-3 card col-md-8 shadow">
-    <a href="/employees/<%=employee._id%>/update-employee-form">Edit</a>
+    <a href="/employees/<%= employee._id %>/update-employee-form">Edit</a>
     <div class="d-flex">
         <div class="d-flex align-items-center m-3">
             <img src="/pic.jpg" alt="test" 
@@ -16,14 +16,14 @@
         <div>
             <div class="card-text my-2">
                 
-                <span class="ms-3 fs-5 text-success"><%=employee.firstName%> <%=employee.lastName%> </span>
-                <span> - <%=employee.position  %></span>
+                <span class="ms-3 fs-5 text-success"><%= employee.firstName %> <%= employee.lastName %> </span>
+                <span> - <%= employee.position %></span>
             </div>
             <div class="card-text my-2">
-                <span class="ms-3"><%=employee.office  %></span>
+                <span class="ms-3"><%= employee.office %></span>
             </div>
             <div class="card-text my-2">
-                <span class="ms-3"><%=employee.designation  %></span>
+                <span class="ms-3"><%= employee.designation %></span>
             </div>
             
         </div>
@@ -69,34 +69,34 @@
             <div class="card-body pt-1 pe-1 ps-0 col-3 ms-0">
                 
                 <div class="card-text my-2">
-                    <span class="ms-3"><%=employee.street  %></span>
+                    <span class="ms-3"><%= employee.street %></span>
                 </div>
                 <div class="card-text my-2">
-                    <span class="ms-3"><%=employee.barangay %></span>
+                    <span class="ms-3"><%= employee.barangay %></span>
                 </div>
                 <div class="card-text my-2">
-                    <span class="ms-3"><%=employee.city  %></span>
+                    <span class="ms-3"><%= employee.city %></span>
                 </div>
                 <div class="card-text my-2">
-                    <span class="ms-3"><%=employee.province  %></span>
+                    <span class="ms-3"><%= employee.province %></span>
                 </div>
                 <div class="card-text my-2">
-                    <span class="ms-3"><%=employee.postalCode  %></span>
+                    <span class="ms-3"><%= employee.postalCode %></span>
                 </div>
                 <div class="card-text my-2">
-                    <span class="ms-3"><%=employee.phoneNumber  %></span>
+                    <span class="ms-3"><%= employee.phoneNumber %></span>
                 </div>
                 <div class="card-text my-2">
-                    <span class="ms-3"><%=employee.phoneNumber2  %></span>
+                    <span class="ms-3"><%= employee.phoneNumber2 %></span>
                 </div>
                 <div class="card-text my-2">
-                    <span class="ms-3"><%=employee.email  %></span>
+                    <span class="ms-3"><%= employee.email %></span>
                 </div>
                 <div class="card-text my-2">
-                    <span class="ms-3"><%=employee.emergContactPer  %></span>
+                    <span class="ms-3"><%= employee.emergContactPer %></span>
                 </div>
                 <div class="card-text my-2">
-                    <span class="ms-3"><%=employee.contactNumber  %></span>
+                    <span class="ms-3"><%= employee.contactNumber %></span>
                 </div>
             </div>
 
@@ -133,32 +133,32 @@
             </div>
             <div class="card-body pt-1 pe-1 ps-0 col-3 ms-0">
                 <div class="card-text my-2">
-                    <span class="ms-3"><%=employee.employeeId  %></span>
+                    <span class="ms-3"><%= employee.employeeId %></span>
                 </div>
                 <div class="card-text my-2">
-                    <span class="ms-3"><%=employee.office%></span>
+                    <span class="ms-3"><%= employee.office %></span>
                 </div>
                 <div class="card-text my-2">
-                    <span class="ms-3"><%=employee.designation %></span>
+                    <span class="ms-3"><%= employee.designation %></span>
                 </div>
                 <div class="card-text my-2">
-                    <span class="ms-3"><%=employee.dateStart %></span>
+                    <span class="ms-3"><%= employee.dateStart %></span>
                 </div>
                 <div class="border border-start-0 rounded-end ms-0">
                     <div class="card-text my-2">
-                        <span class="text-success ms-3"><%=employee.sssId  %></span>
+                        <span class="text-success ms-3"><%= employee.sssId %></span>
                     </div>
                     <div class="card-text my-2">
-                        <span class="text-success ms-3"><%=employee.gsisId  %></span>
+                        <span class="text-success ms-3"><%= employee.gsisId %></span>
                     </div>
                     <div class="card-text my-2">
-                        <span class="text-success ms-3"><%=employee.philHealthId  %></span>
+                        <span class="text-success ms-3"><%= employee.philHealthId %></span>
                     </div>
                     <div class="card-text my-2">
-                        <span class="text-success ms-3"><%=employee.pagibigId  %></span>
+                        <span class="text-success ms-3"><%= employee.pagibigId %></span>
                     </div>
                     <div class="card-text my-2">
-                        <span class="text-success ms-3"><%=employee.tinId  %></span>
+                        <span class="text-success ms-3"><%= employee.tinId %></span>
                     </div>
                 </div>
             </div>

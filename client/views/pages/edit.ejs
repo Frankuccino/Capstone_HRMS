@@ -12,39 +12,39 @@
             </div>
             <div class="w-80 m-3">
                 <label for="firstName" class="form-label ">First Name: </label>
-                <input type="text" name="employee[firstName]" id="firstName" class="form-control" value="<%=employee.firstName  %>">
+                <input type="text" name="employee[firstName]" id="firstName" class="form-control" value="<%= employee.firstName %>">
 
                 <label for="lastName" class="form-label mt-2">LastName: </label>
-                <input type="text" name="employee[lastName]" id="lastName" class="form-control" value="<%=employee.lastName  %>">
+                <input type="text" name="employee[lastName]" id="lastName" class="form-control" value="<%= employee.lastName %>">
 
                 <div class="d-flex align-items-center mt-3">
                     <label for="age" class="form-label align-middle me-2">Age: </label>
-                    <input type="number" name="employee[age]" id="age" class="form-control w-25 me-2" value="<%=employee.age  %>">
+                    <input type="number" name="employee[age]" id="age" class="form-control w-25 me-2" value="<%= employee.age %>">
 
                     <label for="birthdate" class="form-label align-middle me-2">Birthdate: </label>
-                    <input type="date" name="employee[birthdate]" id="birthdate" class="form-control w-50" value="<%=employee.birthdate  %>">
+                    <input type="date" name="employee[birthdate]" id="birthdate" class="form-control w-50" value="<%= employee.birthdate %>">
                 </div>
 
                 <label for="email" class="form-label align-middle me-2 mt-2">Email: </label>
-                <input type="email" name="employee[email]" id="email" class="form-control" value="<%=employee.email  %>">
+                <input type="email" name="employee[email]" id="email" class="form-control" value="<%= employee.email %>">
                 
                 <label for="street" class="form-label mt-2"> Street Address: </label>
-                <input type="text" name="employee[street]" id="street" class="form-control" value="<%=employee.street  %>">
+                <input type="text" name="employee[street]" id="street" class="form-control" value="<%= employee.street %>">
 
                 <label for="barangay" class="form-label mt-2"> Barangay: </label>
-                <input type="text" name="employee[barangay]" id="barangay" class="form-control" value="<%=employee.barangay  %>">
+                <input type="text" name="employee[barangay]" id="barangay" class="form-control" value="<%= employee.barangay %>">
 
                 <label for="city" class="form-label mt-2"> City: </label>
-                <input type="text" name="employee[city]" id="city" class="form-control" value="<%=employee.city  %>">
+                <input type="text" name="employee[city]" id="city" class="form-control" value="<%= employee.city %>">
 
                 <div class="d-flex align-items-center mt-3">
                     <div class="me-2">
                         <label for="province" class="form-label">Province </label>
-                    <input type="text" name="employee[province]" id="province" class="form-control" value="<%=employee.province  %>">
+                    <input type="text" name="employee[province]" id="province" class="form-control" value="<%= employee.province %>">
                     </div>
                     <div>
                         <label for="postalCode" class="form-label">Zip/ Postal Code: </label>
-                        <input type="number" name="employee[postalCode]" id="postalCode" class="form-control" value="<%=employee.postalCode  %>">
+                        <input type="number" name="employee[postalCode]" id="postalCode" class="form-control" value="<%= employee.postalCode %>">
                     </div>
             
                 </div>
@@ -58,10 +58,10 @@
                 </div>
                 <div class="w-80 m-3">
                     <label for="phoneNumber" class="form-label mt-2">Phone Number: </label>
-                    <input type="text" name="employee[phoneNumber]" id="phoneNumber" class="form-control" value="<%=employee.phoneNumber  %>">
+                    <input type="text" name="employee[phoneNumber]" id="phoneNumber" class="form-control" value="<%= employee.phoneNumber %>">
                     
                     <label for="phoneNumber2" class="form-label mt-2">Phone Number 2: </label>
-                    <input type="text" name="employee[phoneNumber2]" id="phoneNumber2" class="form-control" value="<%=employee.phoneNumber2  %>">
+                    <input type="text" name="employee[phoneNumber2]" id="phoneNumber2" class="form-control" value="<%= employee.phoneNumber2 %>">
                 </div>
             </div>
             <div class="mx-2 border rounded-3" style="height:fit-content; font-size: 0.8em;">
@@ -71,19 +71,19 @@
                     </div>
                     <div class="w-80 m-3">
                         <label for="sssId" class="form-label mt-2">SSS ID: </label>
-                        <input type="text" name="employee[sssId]" id="sssId" class="form-control" value="<%=employee.sssId  %>">
+                        <input type="text" name="employee[sssId]" id="sssId" class="form-control" value="<%= employee.sssId %>">
                         
                         <label for="gsisId" class="form-label mt-2">GSIS ID: </label>
-                        <input type="text" name="employee[gsisId]" id="gsisId" class="form-control" value="<%=employee.gsisId  %>">
+                        <input type="text" name="employee[gsisId]" id="gsisId" class="form-control" value="<%= employee.gsisId %>">
                         
                         <label for="philHealthId" class="form-label mt-2">Phil Health ID: </label>
-                        <input type="text" name="employee[philHealthId]" id="philHealthId" class="form-control" value="<%=employee.philHealthId  %>">
+                        <input type="text" name="employee[philHealthId]" id="philHealthId" class="form-control" value="<%= employee.philHealthId %>">
                         
                         <label for="pagibigId" class="form-label mt-2">Pag-ibig ID: </label>
-                        <input type="text" name="employee[pagibigId]" id="pagibigId" class="form-control" value="<%=employee.pagibigId  %>">
+                        <input type="text" name="employee[pagibigId]" id="pagibigId" class="form-control" value="<%= employee.pagibigId %>">
         
                         <label for="tinId" class="form-label mt-2">TIN ID: </label>
-                        <input type="text" name="employee[tinId]" id="tinId" class="form-control" value="<%=employee.tinId  %>">
+                        <input type="text" name="employee[tinId]" id="tinId" class="form-control" value="<%= employee.tinId %>">
                     </div>
                 </div>
             </div>
@@ -98,9 +98,8 @@
                     <label for="office" class="form-label mt-2">Office: </label>
                     <select name="employee[office]" id="office" class="form-control">
                         <option value="" selected>-Select Office</option>
-                        <% for(let office of offices)  {%>
-                            <option value="<%=office.office  %>"<%=employee.office === office.office? 'selected':''  %>><%=office.office  %></option>
-                            
+                        <% for(let office of offices)  { %>
+                            <option value="<%= office.office %>"<%= employee.office === office.office? 'selected':'' %>><%= office.office %></option>
                             <% } %>
                     </select>
                     
@@ -108,8 +107,7 @@
                     <select name="employee[position]" id="position" class="form-control">
                         <option value="">-Select Position</option>
                         <% for(let position of positions)  {%>
-                            <option value="<%=position %>"<%=employee.position === position? 'selected':''  %>><%=position %></option>
-                            
+                            <option value="<%= position %>"<%= employee.position === position? 'selected':''  %>><%= position %></option>     
                             <% } %>
                     </select>
 
@@ -117,14 +115,13 @@
                     <select name="employee[designation]" id="designation" class="form-control">
                         <option value="" selected>-Select Designation</option>
                         <% for(let designation of designations)  {%>
-                            <option value="<%=designation  %>"<%=employee.desination === designation? 'selected': ''  %>><%=designation %></option>
-                            
+                            <option value="<%= designation %>"<%= employee.desination === designation? 'selected': ''  %>><%= designation %></option>
                             <% } %>
                     </select>
                     <br>
 
                     <label for="dateStart" class="form-label align-middle me-2">Date Start: </label>
-                    <input type="date" name="employee[dateStart]" id="dateStart" class="form-control w-50" value="<%=employee.dateStart  %>">
+                    <input type="date" name="employee[dateStart]" id="dateStart" class="form-control w-50" value="<%= employee.dateStart %>">
                 </div>
             </div>
             <div class="m-2 border rounded-3" style="height:fit-content; font-size: 0.8em;">
@@ -133,12 +130,12 @@
                 </div>
                 <div class="w-80 m-3">
                     <label for="emergContactPer" class="form-label mt-2">Contact Person: </label>
-                    <input type="text" name="employee[emergContactPer]" id="emergContactPer" class="form-control" value="<%=employee.emergContactPer  %>">
+                    <input type="text" name="employee[emergContactPer]" id="emergContactPer" class="form-control" value="<%= employee.emergContactPer %>">
                     
                     <label for="emerPhone" class="form-label mt-2">Contact Number: </label>
-                    <input type="text" name="employee[emerPhone]" id="emerPhone" class="form-control" value="<%=employee.emerPhone  %>">
+                    <input type="text" name="employee[emerPhone]" id="emerPhone" class="form-control" value="<%= employee.emerPhone %>">
                     <label for="emerRelation" class="form-label mt-2">Relation: </label>
-                    <input type="text" name="employee[emerRelation]" id="emerRelation" class="form-control w-50" value="<%=employee.emerRelation  %>">
+                    <input type="text" name="employee[emerRelation]" id="emerRelation" class="form-control w-50" value="<%= employee.emerRelation %>">
                 </div>
             </div>
             <div class="m-3 text-center">

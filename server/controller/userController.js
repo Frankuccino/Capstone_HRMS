@@ -9,8 +9,6 @@ mongoose.connect('mongodb://127.0.0.1:27017/hrms')
     console.log(`Error: ${err}`);
 })
 
-
-
 exports.userView = async (req,res)=>{
   const  users = await User.find({});
   res.status(200).render('user/show',{users})
@@ -41,13 +39,11 @@ exports.editUserForm = async (req,res)=>{
     res.status(200).render('user/edit',{user});
 }
 
-
 exports.editUser = async (req,res)=>{
   const userId = req.params.id;
-  const user = await User.findByIdAndUpdate(userId,{...req.body.user});
+  const user = await User.findByIdAndUpdate(userId, {...req.body.user});
   res.redirect(`/users/${userId}`);
 }
-
 
 exports.deleteUser = async(req,res) =>{
   const {id} = req.params;
