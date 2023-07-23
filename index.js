@@ -3,7 +3,7 @@ const app =  express();
 const path = require('path');
 const methodOverride = require('method-override');
 const ejsMate = require('ejs-mate');
-
+const ExpressError = require('./utils/ExpressError');
 
 //user Routers
 app.engine('ejs', ejsMate);
@@ -11,6 +11,7 @@ app.engine('ejs', ejsMate);
 const usersRouters = require('./server/routes/usersRouters');
 const employeesRouters = require('./server/routes/employeesRouters');
 const transactionRouters = require('./server/routes/transactionRouters');
+const leaveRouters = require('./server/routes/leaveRouter');
 
 app.set('views', path.join(__dirname,'./client/views'));
 app.set('view engine', 'ejs');
@@ -27,12 +28,19 @@ app.use(methodOverride('_method'));
 app.use('',usersRouters)
 app.use('',employeesRouters)
 app.use('',transactionRouters)
+app.use('', leaveRouters)
 
 app.use('*',(req,res,next)=>{
-    next('Page Not Found!',404);
+    next(new ExpressError('Page not found AYEE', 404));
 })
 
+// Error Handler Middleware
+app.use((err, req, res, next) => {
+    const {statusCode = 500} = err;
+    if(!err.message) err.message = "Something went wrong!";
+    res.status(statusCode).render('error', {err});
+})
 
-app.listen(5000,()=>{
+app.listen(5000,() => {
     console.log("Server running in port 5000");
 })

@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const ExpressError = require('../../utils/ExpressError');
-const { employeeSchemaValidation } = require("../../employeeValidation");
+const { employeeSchemaValidation } = require("../../schemas");
 const {viewAllEmployees,employeesForm,addEmployee,viewEmployee,updateEmployeeForm,updateEmployee,deleteEmployee} = require("../controller/employeeController")
 
 const employeeValidate = (req, res, next) => {

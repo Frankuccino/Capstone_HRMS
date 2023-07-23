@@ -29,7 +29,7 @@
                 <td class="align-middle" style="font-size:0.9em;"><%=employee.office  %></td>
                 <td>
                     <a href="/employees/<%=employee._id %>"><button class="btn btn-primary p-1" style="font-size:0.9em;">View</button></a>
-                    <button class="btn btn-success p-1" style="font-size:0.9em;"><a href="/employees/<%=employee._id%>/update-employee-form" >Edit</a></button>
+                    <button class="btn btn-success p-1" style="font-size:0.9em;"><a href="/employees/<%= employee._id %>/update-employee-form" >Edit</a></button>
                   <form action="/employees/<%=employee._id%>?_method=DELETE" method="POST"><button class="btn btn-danger p-1 ms-2" style="font-size:0.9em;">Deactivate</button></form>  
                 </td>
             </tr>
