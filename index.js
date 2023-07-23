@@ -25,13 +25,17 @@ app.use(express.static('public'));
 //Configure Method override
 app.use(methodOverride('_method'));
 
-app.use('',usersRouters)
-app.use('',employeesRouters)
-app.use('',transactionRouters)
-app.use('', leaveRouters)
+app.get('/', (req, res) => {
+    res.render('pages/dashboard');
+});
 
-app.use('*',(req,res,next)=>{
-    next(new ExpressError('Page not found AYEE', 404));
+app.use('', employeesRouters)
+app.use('', leaveRouters)
+app.use('', transactionRouters)
+app.use('', usersRouters)
+
+app.use('*',(req, res, next)=>{
+    next(new ExpressError('Page not found Error BOI!', 404));
 })
 
 // Error Handler Middleware

@@ -1,9 +1,9 @@
 <% layout('/layouts/boilerplate') %>
 
 
-    <h3 class="page-header">Transactions</h3>
+    <h3 class="page-header mt-4 ms-3">Transactions</h3>
 
-    <div>
+    <div class="col-7 m-auto">
         <%for(let transaction of transactions) {%>
                 <p><%= transaction.transaction %> - Date: <%= transaction.createdAt %></p>
             <% } %>

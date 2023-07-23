@@ -13,16 +13,16 @@ mongoose.connect('mongodb://127.0.0.1:27017/hrms')
 .catch((err)=>{
     console.log(`Error: ${err}`);
 })
-
+const activePage = '/employees'
 // View All Employees
 exports.viewAllEmployees = async (req, res) => {
     const employees = await Employee.find({})
-    res.render('pages/employees',{employees});
+    res.render('pages/employees',{employees, activePage});
 }
 
 // View New Employee Form
 exports.employeesForm = (req, res)=>{
-    res.render('pages/employeeForm',{ offices, positions, designations});
+    res.render('pages/employeeForm',{ offices, positions, designations, activePage});
 }
 
 // Add New Employee
@@ -42,14 +42,14 @@ exports.addEmployee = async (req, res)=>{
 exports.viewEmployee= async (req, res)=>{
     const id = req.params.id;
     const employee = await Employee.findById(id);
-    res.render('pages/emp-info',{employee})
+    res.render('pages/emp-info',{employee, activePage})
 }
 
 // View Update Employee Form
 exports.updateEmployeeForm = async (req, res)=>{
     const id = req.params.id;
     const employee = await Employee.findById(id);
-    res.render('pages/edit',{employee, offices, positions, designations});
+    res.render('pages/edit',{employee, offices, positions, designations, activePage});
 }
 
 // Update Employee Form
