@@ -8,6 +8,7 @@ const ExpressError = require('./utils/ExpressError');
 //user Routers
 app.engine('ejs', ejsMate);
 
+const dashboardRouter = require('./server/routes/dashboardRouter');
 const usersRouters = require('./server/routes/usersRouters');
 const employeesRouters = require('./server/routes/employeesRouters');
 const transactionRouters = require('./server/routes/transactionRouters');
@@ -25,10 +26,8 @@ app.use(express.static('public'));
 //Configure Method override
 app.use(methodOverride('_method'));
 
-app.get('/', (req, res) => {
-    res.render('pages/dashboard');
-});
 
+app.use('', dashboardRouter)
 app.use('', employeesRouters)
 app.use('', leaveRouters)
 app.use('', transactionRouters)
@@ -38,11 +37,12 @@ app.use('*',(req, res, next)=>{
     next(new ExpressError('Page not found Error BOI!', 404));
 })
 
+const activePage = '';
 // Error Handler Middleware
 app.use((err, req, res, next) => {
     const {statusCode = 500} = err;
     if(!err.message) err.message = "Something went wrong!";
-    res.status(statusCode).render('error', {err});
+    res.status(statusCode).render('error', {err, activePage});
 })
 
 app.listen(5000,() => {
