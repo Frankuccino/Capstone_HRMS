@@ -37,7 +37,7 @@ app.use('*',(req, res, next)=>{
     next(new ExpressError('Page not found Error BOI!', 404));
 })
 
-const activePage = '';
+const activePage = 'nA';
 // Error Handler Middleware
 app.use((err, req, res, next) => {
     const {statusCode = 500} = err;
