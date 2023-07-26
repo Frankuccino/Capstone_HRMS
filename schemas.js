@@ -25,7 +25,7 @@ module.exports.employeeSchemaValidation = Joi.object({
         emergContactPer: Joi.string().required(),
         emerPhone: Joi.number().required(),
         emerRelation: Joi.string().required(),
-        employeeId: Joi.string().required(),
+        employeeId: Joi.string().allow('').optional(),
         email: Joi.string().email().required(),
         office: Joi.string().required(),
         position: Joi.string().required(),

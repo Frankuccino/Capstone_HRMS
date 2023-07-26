@@ -30,6 +30,24 @@ const employeesSchema = new Schema({
     tinId: String,
     designation: String,
     dateStart: String,
+
+    // For Leave management relationship
+    leaveBalance: {
+        type: Number,
+        default: 10
+    },
+    approvedLeaves: Number,
+    pendingLeaves: Number, 
+    leavesHistory: {
+        type: String
+    },
+    Leaves: [ 
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Leave'
+        }
+    ],
+    // End
     createdAt: {
         type: Date,
         default: Date.now(),

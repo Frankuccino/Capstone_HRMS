@@ -17,6 +17,25 @@ mongoose.connect('mongodb://127.0.0.1:27017/hrms')
     console.log(`Error: ${err}`);
 })
 const activePage = '/employees'
+// Function to set the number number value for the employeeID
+async function generateNewEmployeeId(employeePosition, employeeStartYear) {
+    const existingEmployees = await Employee.find({}, 'employeeId'); // Fetch all existing employeeIds
+    const usedNumbers = existingEmployees.map((employee) =>
+      parseInt(employee.employeeId.slice(-3), 10)
+    );
+  
+    const min = 1;
+    const max = 5000;
+    for (let i = min; i <= max; i++) {
+      if (!usedNumbers.includes(i)) {
+        const paddedNumber = String(i).padStart(4, '0');
+        return `${employeePosition}${employeeStartYear}${paddedNumber}`;
+      }
+    }
+  
+    throw new Error('All possible employee numbers are used.');
+  }
+
 // View All Employees
 exports.viewAllEmployees = async (req, res) => {
     const employees = await Employee.find({})
@@ -31,6 +50,14 @@ exports.employeesForm = (req, res)=>{
 // Add New Employee
 exports.addEmployee = catchAsync(async (req, res)=>{
     const employee = req.body.employee;
+
+    const employeePosition = employee.position.slice(0, 3).toUpperCase()
+    const employeeStartYear = employee.dateStart.slice(2, 4)
+
+    const employeeId = await generateNewEmployeeId(employeePosition, employeeStartYear);
+ 
+    req.body.employee.employeeId = employeeId
+    
     const newEmployee = new Employee(employee);
     await newEmployee.save();
      const addTransaction = {
@@ -58,7 +85,22 @@ exports.updateEmployeeForm = catchAsync(async (req, res)=>{
 // Update Employee Form
 exports.updateEmployee = catchAsync(async(req, res) => {
     const id = req.params.id;
-    const employee = await Employee.findByIdAndUpdate(id,{...req.body.employee});
+   
+    const findEmployee = await Employee.findById(id)
+    const last4Digits = findEmployee.employeeId.slice(5, 10)
+
+    const employee = req.body.employee
+    const employeePosition = employee.position.slice(0, 3).toUpperCase()
+    const employeeStartYear = employee.dateStart.slice(2, 4)
+   
+    const employeeId = `${employeePosition}${employeeStartYear}${last4Digits}`;
+    
+    req.body.employee.employeeId = employeeId
+
+    const updateEmployeeId = await Employee.findByIdAndUpdate(id, { $set: {employeeId: employeeId}} )
+    
+    const employeeUpdate = await Employee.findByIdAndUpdate(id,{...req.body.employee});
+
     res.redirect('/employees')
 })
 

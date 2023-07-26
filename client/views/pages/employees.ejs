@@ -31,14 +31,19 @@
                     <td>
                         <a href="/employees/<%=employee._id %>"><button class="btn btn-primary p-1" style="font-size:0.9em;">View</button></a>
                         <a href="/employees/<%= employee._id %>/update-employee-form"><button class="btn btn-success p-1" style="font-size:0.9em;">Edit</button></a>
-                     <button class="btn btn-danger p-1 ms-2" style="font-size:0.9em;" data-bs-toggle="modal" data-bs-target="#deactivateModal">Deactivate</button>
+
+                        <form action="/employees/<%= employee._id %>?_method=DELETE" method="POST">
+
+                            <button class="btn btn-danger p-1 ms-2" style="font-size:0.9em;" data-bs-toggle="modal" data-bs-target="#deactivateModal">Deactivate</button>
+                        </form>
+
                     </td>
                 </tr>
                 <% } %>
             </tbody>
         </table>
     
-        <div class="modal fade" id="deactivateModal" tabindex="-1" role="dialog" aria-labelledby="deactivateConfirm" aria-hidden="true">
+        <!-- <div class="modal fade" id="deactivateModal" tabindex="-1" role="dialog" aria-labelledby="deactivateConfirm" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header bg-danger">
@@ -59,12 +64,10 @@
                         </form>
                     </div>
             </div>
-        </div>
+        </div> -->
     </div>
     <div class="col-2 card shadow">
         <h4 class="card-head mt-2 ms-1">Tools</h4>
     </div>
 </section>
 
-
-<!-- <form action="/employees/ =employee._id ?_method=DELETE" method="POST"></form> -->
