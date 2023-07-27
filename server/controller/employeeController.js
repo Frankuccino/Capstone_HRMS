@@ -17,7 +17,8 @@ mongoose.connect('mongodb://127.0.0.1:27017/hrms')
     console.log(`Error: ${err}`);
 })
 const activePage = '/employees'
-// Function to set the number number value for the employeeID
+
+// Function to set the number value for the employeeID
 async function generateNewEmployeeId(employeePosition, employeeStartYear) {
     const existingEmployees = await Employee.find({}, 'employeeId'); // Fetch all existing employeeIds
     const usedNumbers = existingEmployees.map((employee) =>
@@ -48,7 +49,7 @@ exports.employeesForm = (req, res)=>{
 }
 
 // Add New Employee
-exports.addEmployee = catchAsync(async (req, res)=>{
+exports.addEmployee = catchAsync(async (req, res) => {
     const employee = req.body.employee;
 
     const employeePosition = employee.position.slice(0, 3).toUpperCase()
@@ -63,6 +64,7 @@ exports.addEmployee = catchAsync(async (req, res)=>{
      const addTransaction = {
          transaction: `${newEmployee.firstName} is added to the database`
      }
+
     const transaction =  new Transaction(addTransaction);
     await transaction.save();
     res.redirect('/employees');
