@@ -41,7 +41,7 @@ const employeesSchema = new Schema({
     leavesHistory: {
         type: String
     },
-    Leaves: [ 
+    leaves: [ 
         {
             type: Schema.Types.ObjectId,
             ref: 'Leave'

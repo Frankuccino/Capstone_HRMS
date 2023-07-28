@@ -10,36 +10,36 @@
             <h4 class="text-success my-2">Leave Information</h4>
         </div>
         <div class="w-80 m-3">
-            <label for="employeeId" class="form-label ">Employee ID: </label>
-            <input type="text" name="employee[employeeId]" id="employeeId" class="form-control">
-
-            <label for="firstName" class="form-label mt-2 ">First Name: </label>
-            <input type="text" name="employee[firstName]" id="firstName" class="form-control" disabled>
-
+            <label for="employeeId" class="form-label">Employee ID: </label>
+            <input type="text" name="leave[employeeId]" id="employeeId" class="form-control">
+            
+            <label for="firstName" class="form-label mt-2">First Name: </label>
+            <input type="text" name="leave[firstName]" id="firstName" class="form-control">
+            
             <label for="lastName" class="form-label mt-2">Last Name: </label>
-            <input type="text" name="employee[lastName]" id="lastName" class="form-control" disabled>
-
+            <input type="text" name="leave[lastName]" id="lastName" class="form-control">
+            
             <div class="d-flex align-items-center mt-3">
                 <div class="me-2">
                     <label for="leaveStart" class="form-label">Start: </label>
-                <input type="date" name="leaveStart" id="leaveStart" class="form-control">
+                <input type="date" name="leave[leaveStart]" id="leaveStart" class="form-control">
                 </div>
                 <div class="me-2">
                     <label for="leaveEnd" class="form-label">End: </label>
-                    <input type="date" name="leaveEnd" id="leaveEnd" class="form-control">
+                    <input type="date" name="leave[leaveEnd]" id="leaveEnd" class="form-control">
                 </div>
                 <div>
                     <label for="leaveType" class="form-label">Leave Type: </label>
                     <select name="leaveType" id="leaveType" class="form-control align-middle w-100">
                         <option value="" class="text-muted" selected>Select</option>
-                        <option value="" class="text-muted">Sick Leave</option>
-                        <option value="" class="text-muted">Vacation Leave</option>
+                        <option value="Sick Leave" class="text-muted">Sick Leave</option>
+                        <option value="Vacation Leave" class="text-muted">Vacation Leave</option>
                     </select>
                 </div>
             </div>
             <div class="my-3">
                 <label for="firstName" class="form-label ">Notes / Remarks: </label>
-                <textarea cols="50" rows="5" name="employee[employeeId]" id="firstName" class="form-control" style="resize:none">
+                <textarea cols="50" rows="5" name="leave[remarks]" id="firstName" class="form-control" style="resize:none">
             </textarea>
             </div>
             <div class="my-3 d-flex justify-content-center">
@@ -51,3 +51,36 @@
         </div>
     </div>
 </form>
+
+<script>
+    const employeesData = JSON.parse('<%- JSON.stringify(employeeIds) %>');
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const employeeIdInput = document.getElementById('employeeId');
+      const firstNameInput = document.getElementById('firstName');
+      const lastNameInput = document.getElementById('lastName');
+  
+      // Function to update the first name and last name fields based on employeeId
+      const updateFormFields = (employeeData) => {
+   
+        firstNameInput.value = employeeData.firstName;
+        lastNameInput.value = employeeData.lastName;
+      };
+  
+      employeeIdInput.addEventListener('input', () => {
+        const employeeIdData = employeeIdInput.value.trim();
+  
+        // Find the matching employee in the 'employees' array based on the input value
+        const matchingEmployee = employeesData.find((employee) => employee.employeeId === employeeIdData);
+    
+        if (matchingEmployee) {
+          updateFormFields(matchingEmployee);
+        } else {
+          // If no matching employee is found, clear the form fields
+          firstNameInput.value = '';
+          lastNameInput.value = '';
+        }
+      });
+    });
+  </script>
+  

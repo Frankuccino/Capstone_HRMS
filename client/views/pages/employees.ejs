@@ -42,32 +42,38 @@
                 <% } %>
             </tbody>
         </table>
-    
-        <!-- <div class="modal fade" id="deactivateModal" tabindex="-1" role="dialog" aria-labelledby="deactivateConfirm" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header bg-danger">
-                        <h5 class="modal-title text-light" id="deactivateConfirm">Confirm Deactivation</h5>
-                    </div>
-                    <div class="modal-body text-center fs-5">
-                    Deactivate "Sample Name"?
-                    </div>
-                    <div class="modal-body text-center">
-                        <form action="">
-                            <label for="confirmId" name="confirmId">Please enter the Employee ID to be deactivated:</label>
-                            <input type="text" name="confirmId" placeholder="-Employee ID-" class="text-center mt-2 rounded-3">
-                    </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-danger">Deactivate</button>
-                        </div>
-                        </form>
-                    </div>
-            </div>
-        </div> -->
     </div>
     <div class="col-2 card shadow">
         <h4 class="card-head mt-2 ms-1">Tools</h4>
     </div>
 </section>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const headers = document.querySelectorAll('th');
+        const tbody = document.querySelector('tbody');
+        const rows = Array.from(tbody.querySelectorAll('tr'));
+
+        headers.forEach((header, index) => {
+            header.addEventListener('click', function () {
+                rows.sort((a, b) => {
+                    const aValue = a.children[index].textContent;
+                    const bValue = b.children[index].textContent;
+                    return aValue.localeCompare(bValue, undefined, { sensitivity: 'base' });
+                });
+
+                if (this.classList.contains('asc')) {
+                    rows.reverse();
+                    this.classList.remove('asc');
+                    this.classList.add('desc');
+                } else {
+                    this.classList.remove('desc');
+                    this.classList.add('asc');
+                }
+
+                tbody.innerHTML = '';
+                rows.forEach(row => tbody.appendChild(row));
+            });
+        });
+    });
+</script> 
 

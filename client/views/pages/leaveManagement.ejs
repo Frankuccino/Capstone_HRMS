@@ -14,21 +14,23 @@
                 <tr class="align-middle style="font-size: 0.9em;">
                     <th class="text-success" style="width:20%;">Employee ID</th>
                     <th class="text-success" style="width:30%;">Name</th>
-                    <th class="text-success" style="width:20%;">Role</th>
-                    <th class="text-success" style="width:20%;">Department</th>
+                    <th class="text-success" style="width:20%;">Leave Start</th>
+                    <th class="text-success" style="width:20%;">Leave End</th>
                     <th class="text-success" style="width:10%;"></th>      
                 </tr>
             </thead>
             <tbody>
+                <%  for(let leave of leaves) { %>
                 <tr class="align-middle" style="font-size: 0.8em;">
-                    <td>REG-1011-230001</td>
-                    <td>Sample Name</td>
-                    <td>Department Chief</td>
-                    <td>Executive Department</td>
+                    <td><%= leave.employeeId %></td>
+                    <td><%= leave.firstName %> <%= leave.lastName %></td>
+                    <td><%= leave.leaveStart %></td>
+                    <td><%= leave.leaveEnd %></td>
                     <td>
                         <button class="btn btn-light border border-success text-success">View</button>
                     </td>
                 </tr>
+                <% } %>
             </tbody>
         </table>
     </div>

@@ -7,6 +7,7 @@ const LeaveSchema = new Schema({
     lastName: String,
     leaveStart: String,
     leaveEnd: String,
+    remarks: String,
 
 })
 

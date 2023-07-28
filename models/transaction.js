@@ -13,4 +13,4 @@ const transactionLogSchema =  new Schema({
 })
 
 
-module.exports = mongoose.model('Transaction',transactionLogSchema);
+module.exports = mongoose.model('Transaction', transactionLogSchema);
