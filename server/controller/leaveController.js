@@ -26,3 +26,11 @@ exports.addLeave = async (req, res) => {
     await employee.save();
     res.redirect('/leave-management'); 
 }
+
+// View Specific Leave
+exports.viewLeave = catchAsync(async (req, res) => {
+    const id = req.params.id;
+    const leaver = await Leave.findById(id);
+    // res.send(leave);
+    res.render('pages/leave-info', {activePage, leaver})
+})

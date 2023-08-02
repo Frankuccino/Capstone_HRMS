@@ -8,7 +8,7 @@
 
 
 <section class="row m-auto">
-    <div class="col-10">
+    <div class="col-12">
         <table class="table table-striped border rounded-3">
             <thead>
                 <tr>
@@ -28,12 +28,11 @@
                     <td class="align-middle" style="font-size:0.9em;"><%=employee.lastName  %></td>
                     <td class="align-middle" style="font-size:0.9em;"><%=employee.position %></td>
                     <td class="align-middle" style="font-size:0.9em;"><%=employee.office  %></td>
-                    <td>
+                    <td class="flex">
                         <a href="/employees/<%=employee._id %>"><button class="btn btn-primary p-1" style="font-size:0.9em;">View</button></a>
                         <a href="/employees/<%= employee._id %>/update-employee-form"><button class="btn btn-success p-1" style="font-size:0.9em;">Edit</button></a>
 
                         <form action="/employees/<%= employee._id %>?_method=DELETE" method="POST">
-
                             <button class="btn btn-danger p-1 ms-2" style="font-size:0.9em;" data-bs-toggle="modal" data-bs-target="#deactivateModal">Deactivate</button>
                         </form>
 
@@ -43,9 +42,7 @@
             </tbody>
         </table>
     </div>
-    <div class="col-2 card shadow">
-        <h4 class="card-head mt-2 ms-1">Tools</h4>
-    </div>
+  
 </section>
 <script>
     document.addEventListener('DOMContentLoaded', function () {

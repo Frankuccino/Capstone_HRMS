@@ -13,9 +13,10 @@
             <thead>
                 <tr class="align-middle style="font-size: 0.9em;">
                     <th class="text-success" style="width:20%;">Employee ID</th>
-                    <th class="text-success" style="width:30%;">Name</th>
-                    <th class="text-success" style="width:20%;">Leave Start</th>
-                    <th class="text-success" style="width:20%;">Leave End</th>
+                    <th class="text-success" style="width:20%;">Name</th>
+                    <th class="text-success" style="width:15%;">Leave Start</th>
+                    <th class="text-success" style="width:15%;">Leave End</th>
+                    <th class="text-success" style="width:15%;">Status</th>      
                     <th class="text-success" style="width:10%;"></th>      
                 </tr>
             </thead>
@@ -26,8 +27,12 @@
                     <td><%= leave.firstName %> <%= leave.lastName %></td>
                     <td><%= leave.leaveStart %></td>
                     <td><%= leave.leaveEnd %></td>
+                    <td><%= leave.status %></td>
                     <td>
-                        <button class="btn btn-light border border-success text-success">View</button>
+                        <a href="/leave-management/<%= leave._id %>">
+                            <button class="btn btn-light border border-success text-success">View</button>
+                        </a>
+
                     </td>
                 </tr>
                 <% } %>
