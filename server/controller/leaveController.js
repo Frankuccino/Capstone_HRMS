@@ -31,6 +31,29 @@ exports.addLeave = async (req, res) => {
 exports.viewLeave = catchAsync(async (req, res) => {
     const id = req.params.id;
     const leaver = await Leave.findById(id);
-    // res.send(leave);
     res.render('pages/leave-info', {activePage, leaver})
 })
+
+
+// View Update Leave Form 
+exports.updateLeaveForm = async (req, res) => { 
+    const leaveTypes = ['Sick Leave', 'Vacation Leave'] 
+    const id = req.params.id 
+    const leave = await Leave.findById(id); 
+    res.render('pages/leave-edit', {leave, activePage, leaveTypes}); 
+} 
+ 
+// Update Leave Form 
+exports.updateLeave = async (req, res) => { 
+    const id = req.params.id; 
+    const leaveUpdate = await Leave.findByIdAndUpdate(id, {...req.body.leave}) 
+    res.redirect('/leave-management'); 
+} 
+
+// Delete Specific Leave 
+exports.deleteLeave = async (req, res) => { 
+    const id = req.params.id; 
+    const leave = await Leave.findById(id); 
+    await Leave.findByIdAndDelete(id);
+    res.redirect('/leave-management') 
+} 

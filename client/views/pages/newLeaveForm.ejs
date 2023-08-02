@@ -30,7 +30,7 @@
                 </div>
                 <div>
                     <label for="leaveType" class="form-label">Leave Type: </label>
-                    <select name="leaveType" id="leaveType" class="form-control align-middle w-100">
+                    <select name="leave[leaveType]" id="leave[leaveType]" class="form-control align-middle w-100">
                         <option value="" class="text-muted" selected>Select</option>
                         <option value="Sick Leave" class="text-muted">Sick Leave</option>
                         <option value="Vacation Leave" class="text-muted">Vacation Leave</option>
@@ -39,8 +39,7 @@
             </div>
             <div class="my-3">
                 <label for="firstName" class="form-label ">Notes / Remarks: </label>
-                <textarea cols="50" rows="5" name="leave[remarks]" id="firstName" class="form-control" style="resize:none">
-            </textarea>
+                <textarea cols="50" rows="5" name="leave[remarks]" id="firstName" class="form-control" style="resize:none"></textarea>
             </div>
             <div class="my-3 d-flex justify-content-center">
                 <button class="btn btn-success mx-3 w-30">

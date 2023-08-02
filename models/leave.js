@@ -11,6 +11,9 @@ const LeaveSchema = new Schema({
     status : {
         type: String , 
         default: 'pending',
+    },
+    leaveType: {
+        type: String
     }
     // ['pending', 'approved', 'not approved']
 
