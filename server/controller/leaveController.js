@@ -8,12 +8,12 @@ const activePage = '/leave-management'
 exports.viewLeaveManagement = async (req, res) => {
     const leaves = await Leave.find({})
     
-    res.render('pages/leaveManagement', {activePage, leaves});
+    res.render('pages/leave/leaveManagement', {activePage, leaves});
 }
 
 exports.leaveForm = async (req, res) => {
     const employeeIds = await Employee.find({}, 'employeeId firstName lastName');
-    res.render('pages/newLeaveForm', {activePage, employeeIds});
+    res.render('pages/leave/newLeaveForm', {activePage, employeeIds});
 }
 
 // Add leave to the employee
@@ -31,7 +31,7 @@ exports.addLeave = async (req, res) => {
 exports.viewLeave = catchAsync(async (req, res) => {
     const id = req.params.id;
     const leaver = await Leave.findById(id);
-    res.render('pages/leave-info', {activePage, leaver})
+    res.render('pages/leave/leave-info', {activePage, leaver})
 })
 
 
@@ -40,7 +40,7 @@ exports.updateLeaveForm = async (req, res) => {
     const leaveTypes = ['Sick Leave', 'Vacation Leave'] 
     const id = req.params.id 
     const leave = await Leave.findById(id); 
-    res.render('pages/leave-edit', {leave, activePage, leaveTypes}); 
+    res.render('pages/leave/leave-edit', {leave, activePage, leaveTypes}); 
 } 
  
 // Update Leave Form 

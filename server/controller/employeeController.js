@@ -40,12 +40,12 @@ async function generateNewEmployeeId(employeePosition, employeeStartYear) {
 // View All Employees
 exports.viewAllEmployees = async (req, res) => {
     const employees = await Employee.find({})
-    res.render('pages/employees',{employees, activePage});
+    res.render('pages/employee/employees',{employees, activePage});
 }
 
 // View New Employee Form
 exports.employeesForm = (req, res)=>{
-    res.render('pages/employeeForm',{ offices, positions, designations, activePage});
+    res.render('pages/employee/employeeForm',{ offices, positions, designations, activePage});
 }
 
 // Add New Employee
@@ -74,14 +74,14 @@ exports.addEmployee = catchAsync(async (req, res) => {
 exports.viewEmployee = catchAsync(async (req, res)=>{
     const id = req.params.id;
     const employee = await Employee.findById(id);
-    res.render('pages/emp-info',{employee, activePage})
+    res.render('pages/employee/emp-info',{employee, activePage})
 })
 
 // View Update Employee Form
 exports.updateEmployeeForm = catchAsync(async (req, res)=>{
     const id = req.params.id;
     const employee = await Employee.findById(id);
-    res.render('pages/edit',{employee, offices, positions, designations, activePage});
+    res.render('pages/employee/edit',{employee, offices, positions, designations, activePage});
 })
 
 // Update Employee Form
