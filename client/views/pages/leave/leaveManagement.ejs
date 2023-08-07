@@ -4,8 +4,20 @@
         <h3 class="page-header mt-4 ms-3">Leave Management</h3>
     </div>
 
+    <div class="d-flex col-10 justify-content-between mx-3">
+        <div class="">
+            <a href="/leave-management/new-leave-request"><button class="btn btn-success">Request Leave</button></a>
+        </div>
+        <div class="d-flex justify-content-end mb-2">
+            <form action="" class="d-flex me-4">
+                <input type="text" class="form-control me-2">
+                <button class="btn btn-success"><i class="bi bi-search text-light"></i></button>
+            </form>
+        </div>  
+    </div>
+
 <div class="d-flex" style="max-height: 80%">
-    <div class="col-lg-8 col-sm-12 border rounded-3 p-2 me-2 overflow-auto shadow">
+    <div class="col-lg-10 col-sm-12 border bg-light rounded-3 p-2 me-2 overflow-auto shadow">
         <div class="mx-3">
             <h4 class="text-success my-2">For Approval</h4>
         </div>
@@ -29,9 +41,13 @@
                     <td><%= leave.leaveEnd %></td>
                     <td><%= leave.status %></td>
                     <td>
-                        <a href="/leave-management/<%= leave._id %>">
-                            <button class="btn btn-light border border-success text-success">View</button>
-                        </a>  
+                        <div class="actions mx-0 d-flex align-middle">
+                            <a href="/leave-management/<%= leave._id %>"><button class="btn btn-sm btn-light border border-success px-3 me-1" data-toggle="tooltip" data-placement="top" title="View"><i class="bi bi-search"></i></button></a>
+                            <button class="btn btn-sm btn-success ms-2" data-toggle="tooltip" data-placement="top" title="Approve"><i class="bi bi-check-lg"></i></button>
+                            <button class="btn btn-sm btn-danger mx-1" data-toggle="tooltip" data-placement="top" title="Reject"><i class="bi bi-x-lg"></i></button>
+                            <button class="btn btn-sm btn-light border border-danger text-danger ms-2" data-toggle="tooltip" data-placement="top" title="Delete"><i class="bi bi-trash"></i></button>
+                        </div>
+                    
                     </td>
                 </tr>
                 <% } %>
@@ -39,14 +55,5 @@
         </table>
     </div>
     
-    <div class="col-lg-3 col-sm-6 border rounded-3 p-2 ms-2 shadow">
-        <div class="mx-3">
-            <h4 class="text-success my-2">Actions</h4>
-        </div>
-        <div class="d-flex justify-content-center mt-5">
-            <div class="w-75">
-                <a href="/leave-management/new-leave-request"><button class="btn btn-success w-100 p-3">Request Leave</button></a>
-            </div>
-        </div>
-    </div>
+ 
 </div>
