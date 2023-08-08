@@ -40,7 +40,7 @@ async function generateNewEmployeeId(employeePosition, employeeStartYear) {
 // View All Employees
 exports.viewAllEmployees = async (req, res) => {
     const employees = await Employee.find({})
-    res.render('pages/employee/employees',{employees, activePage});
+    res.render('pages/employee/employees',{employees, activePage, offices, positions});
 }
 
 // View New Employee Form
@@ -118,3 +118,17 @@ exports.deleteEmployee = catchAsync(async (req, res) => {
     await transaction.save();
     res.redirect('/employees')
 })
+
+// Deactivate a user
+exports.deactivateEmployee = async (req, res) => {
+    const {id} = req.params;
+    const employee = await Employee.findByIdAndUpdate(id, {$set: {isActive: false}})
+    res.redirect('/employees');
+}
+
+// Activate an employee
+exports.activateEmployee = async (req, res) => {
+    const {id} = req.params;
+    const employee = await Employee.findByIdAndUpdate(id, {$set: {isActive: true}})
+    res.redirect('/employees');
+}

@@ -53,3 +53,29 @@ body {
 .card-head {
   color: #017119
 }
+
+/* .actions {
+ opacity: 0;
+}
+
+tr:hover .actions  {
+  transition: 0.1s;
+  opacity: 1;
+} */
+
+.activate {
+  color: red;
+}
+
+.activate:hover {
+  scale: 1.2;
+  color: green;
+}
+
+.deactivate {
+  color: green;
+}
+.deactivate:hover {
+  scale: 1.2;
+  color: red;
+}

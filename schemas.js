@@ -37,5 +37,5 @@ module.exports.employeeSchemaValidation = Joi.object({
         designation: Joi.string(),
         dateStart: Joi.string(),
         createdAt: Joi.date().default(Date.now())
-    }).required()
+    })
 })

@@ -1,12 +1,12 @@
 <% layout('/layouts/boilerplate') %>
 
 <div>
-    <h3 class="page-header mt-4 ms-3">New Employee</h3>
+    <h3 class="my-3 page-header mt-4 ms-3">Update Employee</h3>
 </div>
 
-<form action="/employees/<%= employee._id %>?_method=PATCH" method="POST" novalidate class="validated-form">
+<form action="/employees/<%= employee._id %>/update?_method=PATCH" method="POST" novalidate class="validated-form">
     <div class="d-flex">
-        <div class="w-50 mx-2 border rounded-3 shadow" style="font-size: 0.8em;">
+        <div class="w-50 mx-2 border rounded-3 shadow bg-light" style="height:fit-content; font-size: 0.8em;">
             <div class="mx-3">
                 <h4 class="text-success my-2">Personal Information</h4>
             </div>
@@ -25,16 +25,16 @@
                     <input type="date" name="employee[birthdate]" id="birthdate" class="form-control w-50" value="<%= employee.birthdate %>">
                 </div>
 
-                <label for="email" class="form-label align-middle me-2 mt-2">Email: </label>
+                <label for="email" class="form-label align-middle me-2 mt-3">Email: </label>
                 <input type="email" name="employee[email]" id="email" class="form-control" value="<%= employee.email %>">
                 
-                <label for="street" class="form-label mt-2"> Street Address: </label>
+                <label for="street" class="form-label mt-3"> Street Address: </label>
                 <input type="text" name="employee[street]" id="street" class="form-control" value="<%= employee.street %>">
 
-                <label for="barangay" class="form-label mt-2"> Barangay: </label>
+                <label for="barangay" class="form-label mt-3"> Barangay: </label>
                 <input type="text" name="employee[barangay]" id="barangay" class="form-control" value="<%= employee.barangay %>">
 
-                <label for="city" class="form-label mt-2"> City: </label>
+                <label for="city" class="form-label mt-3"> City: </label>
                 <input type="text" name="employee[city]" id="city" class="form-control" value="<%= employee.city %>">
 
                 <div class="d-flex align-items-center mt-3">
@@ -52,12 +52,12 @@
         </div>
 
         <div class="w-50">
-            <div class="m-2 mt-0 border rounded-3 shadow" style="height:fit-content; font-size: 0.8em;">
+            <div class="m-2 mt-0 border rounded-3 shadow bg-light" style="height:fit-content; font-size: 0.8em;">
                 <div class="mx-3">
                     <h4 class="text-success my-2">Contact Information</h4>
                 </div>
                 <div class="w-80 m-3">
-                    <label for="phoneNumber" class="form-label mt-2">Phone Number: </label>
+                    <label for="phoneNumber" class="form-label mt-3">Phone Number: </label>
                     <input type="text" name="employee[phoneNumber]" id="phoneNumber" class="form-control" value="<%= employee.phoneNumber %>">
                     
                     <label for="phoneNumber2" class="form-label mt-2">Phone Number 2: </label>
@@ -91,7 +91,7 @@
         </div>
         
         <div class="w-50">
-            <div class="mx-2 border rounded-3 shadow" style="height:fit-content; font-size: 0.8em;">
+            <div class="mx-2 border rounded-3 shadow bg-light" style="height:fit-content; font-size: 0.8em;">
                 <div class="mx-3">
                     <h4 class="text-success my-2">Designation</h4>
                 </div>
@@ -125,7 +125,7 @@
                     <input type="date" name="employee[dateStart]" id="dateStart" class="form-control w-50" value="<%= employee.dateStart %>">
                 </div>
             </div>
-            <div class="m-2 border rounded-3 shadow" style="height:fit-content; font-size: 0.8em;">
+            <div class="m-2 border rounded-3 shadow bg-light" style="height:fit-content; font-size: 0.8em;">
                 <div class="mx-3">
                     <h4 class="text-success my-2">Emergency Contact</h4>
                 </div>
