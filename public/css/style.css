@@ -75,6 +75,7 @@ tr:hover .actions  {
 .deactivate {
   color: green;
 }
+
 .deactivate:hover {
   scale: 1.2;
   color: red;

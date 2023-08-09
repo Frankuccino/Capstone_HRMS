@@ -8,10 +8,6 @@ const LeaveSchema = new Schema({
     leaveStart: String,
     leaveEnd: String,
     remarks: String,
-    status : {
-        type: String , 
-        default: 'pending',
-    },
     leaveType: {
         type: String
     }

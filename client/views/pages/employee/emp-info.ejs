@@ -4,8 +4,7 @@
     <h3 class="page-header mt-1 ms-3">Employee Information</h3>
 </div>
 
-<div class="m-3 card col-md-8 shadow">
-    <a href="/employees/<%= employee._id %>/update-employee-form">Edit</a>
+<div class="m-3 card col-md-12 shadow">
     <div class="d-flex">
         <div class="d-flex align-items-center m-3">
             <img src="/pic.jpg" alt="test" 
@@ -14,6 +13,9 @@
         </div>
     <div class="d-flex align-items-center">
         <div>
+            <div class="card-text my-2">
+                <span class="ms-3 <%- employee.isActive === true ? 'text-success' : 'text-danger' %>"><%= employee.isActive === true ? 'Active' : 'Inactive' %></span>
+            </div> 
             <div class="card-text my-2">
                 
                 <span class="ms-3 fs-5 text-success"><%= employee.firstName %> <%= employee.lastName %> </span>
@@ -25,10 +27,30 @@
             <div class="card-text my-2">
                 <span class="ms-3"><%= employee.designation %></span>
             </div>
-            
         </div>
 
-       
+        <div class="position-absolute end-0 top-0 mt-2 me-3">
+
+            <div class="d-flex flex-row align-items-center">
+                <div>
+                    <a href="/employees/<%= employee._id %>/update-employee-form"><button class="btn btn-sm ms-1" style="font-size:1.2em;" data-toggle="tooltip" data-placement="top" title="Edit"><i class="bi bi-pencil"></i></button></a>
+                </div>
+                <div>
+                    <% if(employee.isActive === true) { %>
+                        <form action="/employees/<%= employee._id %>/deactivate?_method=PATCH" method="POST">
+                            <a href=""><button class="btn btn-sm deactivate ms-1" style="font-size:1.5em;" data-bs-toggle="tooltip" data-bs-html="true" data-placement="top" title="Deactivate"><i class="bi bi-toggle2-on"></i></button></a>
+                        </form>
+                        <% } %>
+                    <% if(employee.isActive === false) { %>
+                        <form action="/employees/<%= employee._id %>/activate?_method=PATCH" method="POST">
+                            <a href=""><button class="btn btn-sm activate ms-1" style="font-size:1.5em;" data-bs-toggle="tooltip" data-bs-html="true" data-placement="top" title="Activate"><i class="bi-toggle2-off"></i></button></a>
+                        </form>
+                    <% } %>
+                </div>
+            </div>
+
+        </div>
+      
     </div>
  </div>
     <div class="border-top">
@@ -161,6 +183,38 @@
                         <span class="text-success ms-3"><%= employee.tinId %></span>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+
+    <div class="m-3 card col-md-6 shadow">
+        <div class="p-3 row">
+          
+            <div class="col-12" style="min-height:25vh">
+                <h5 class="text-center ">Leave History</h5>
+                <table class="justify-content-center">
+                    <thead>
+                        <tr class="justify-content-between d-flex">
+                            <th class="col-6 text-center">Leave Start</th>
+                            <th class="col-4 text-center">Leave End</th>
+                            <th class="col-5 text-center">Leave Type</th>
+                            <th class="col-5 text-center">Remarks</th>
+                        </tr>
+                    </thead>
+                    <% for(leaves of employee.leaves) { %>
+                        <tbody>
+                            <tr class="justify-content-between d-flex">
+                                <td class="col-6 text-center"><%= leaves.leaveStart %></td>
+                                <td class="col-4 text-center"><%= leaves.leaveEnd %></td>
+                                <td class="col-5 text-center"><%= leaves.leaveType %></td>
+                                <td class="col-5 text-center"><%=  leaves.remarks%></td>
+                            </tr>
+                            
+                        </tbody>
+                    <% } %>
+                    </table>
             </div>
         </div>
     </div>

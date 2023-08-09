@@ -73,7 +73,7 @@ exports.addEmployee = catchAsync(async (req, res) => {
 // View Specific Employee
 exports.viewEmployee = catchAsync(async (req, res)=>{
     const id = req.params.id;
-    const employee = await Employee.findById(id);
+    const employee = await Employee.findById(id).populate('leaves');
     res.render('pages/employee/emp-info',{employee, activePage})
 })
 
@@ -103,7 +103,7 @@ exports.updateEmployee = catchAsync(async(req, res) => {
     
     const employeeUpdate = await Employee.findByIdAndUpdate(id,{...req.body.employee});
 
-    res.redirect('/employees')
+    res.redirect(`/employees/${id}`)
 })
 
 exports.deleteEmployee = catchAsync(async (req, res) => {
@@ -119,16 +119,19 @@ exports.deleteEmployee = catchAsync(async (req, res) => {
     res.redirect('/employees')
 })
 
-// Deactivate a user
+// Deactivate an employee
 exports.deactivateEmployee = async (req, res) => {
     const {id} = req.params;
     const employee = await Employee.findByIdAndUpdate(id, {$set: {isActive: false}})
-    res.redirect('/employees');
+    res.redirect(`/employees/${id}`)
 }
 
 // Activate an employee
 exports.activateEmployee = async (req, res) => {
     const {id} = req.params;
     const employee = await Employee.findByIdAndUpdate(id, {$set: {isActive: true}})
-    res.redirect('/employees');
+    res.redirect(`/employees/${id}`)
 }
+
+
+

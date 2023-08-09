@@ -31,11 +31,11 @@ const employeesSchema = new Schema({
     designation: String,
     dateStart: String,
 
- 
     isActive: {
         type: Boolean,
         default: true
     },
+    
     status: {
         type: String,
         default: 'Active'
