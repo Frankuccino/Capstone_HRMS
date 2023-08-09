@@ -115,3 +115,23 @@ tr:hover .actions  {
   font-size: 3em;
   color: rgb(42, 44, 45, 0.8);
 }
+
+.backbtn {
+  background-color:rgb(18, 132, 171);
+  color:#fff;
+}
+.backbtn:hover {
+  background-color:rgb(16, 96, 123);
+  color:#fff;
+}
+
+.success {
+  background: linear-gradient(to right, #efacac, #d9d673,#c5d973, #8dc9e3, #9ee7ae  )
+}
+
+.error {
+
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjrPnu7LcwDb3H1_YZDVZr2AVYv11oehdA0w&usqp=CAU");
+  object-fit: cover;
+  color: #fff;
+}

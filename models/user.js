@@ -10,7 +10,10 @@ const UserSchema = new Schema({
     },
     firstName: String,
     lastName: String,
-    password: String,
+    role: {
+        type: String,
+        enum: ['admin', 'manager', 'staff' ]
+    },
 })
 
 UserSchema.plugin(passportLocalMongoose);

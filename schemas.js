@@ -39,3 +39,15 @@ module.exports.employeeSchemaValidation = Joi.object({
         createdAt: Joi.date().default(Date.now())
     })
 })
+
+module.exports.leaveSchemaValidation = Joi.object({
+    leave: Joi.object({
+        employeeId: Joi.string().required(),
+        firstName: Joi.string().required(),
+        lastName: Joi.string().required(),
+        leaveStart: Joi.string().required(),
+        leaveEnd: Joi.string().required(),
+        remarks: Joi.string().required(),
+        leaveType:Joi.string().required(),
+    }).required()
+})

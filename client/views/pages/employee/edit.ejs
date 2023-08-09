@@ -139,13 +139,13 @@
                     <input type="text" name="employee[emerRelation]" id="emerRelation" class="form-control w-50" value="<%= employee.emerRelation %>">
                 </div>
             </div>
-            <div class="m-3 text-center">
-                <button class="btn btn-success mx-2">Submit</button>
-                <a href="/employees/<%= employee._id %>" class="btn btn-danger mx-2">Back</a>
-            </div>
+         
             
         </div>
     </div>
-    
+    <div class="position-absolute top-0 end-0 mt-3 me-3">
+        <button class="btn btn-success mx-1 ps-3 pe-3"><i class="bi bi-envelope-plus me-2"></i>Submit</button>
+        <a href="/employees/<%= employee._id %>" class="btn backbtn mx-1 ps-3 pe-3"><i class="bi bi-arrow-90deg-left me-2"></i>Back</a>
+    </div>
 </form>
 

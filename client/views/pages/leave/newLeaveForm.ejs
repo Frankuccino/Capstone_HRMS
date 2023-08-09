@@ -4,20 +4,20 @@
     <h3 class="my-3 page-header mt-4 ms-3">Leave Request Form</h3>
 </div>
 
-<form action="/leave-management" method="POST" novalidate class="validated-form">
+<form action="/leave-management/<%= employee.id %>" method="POST" novalidate class="validated-form">
     <div class="w-50 mx-2 bg-light border rounded-3 shadow" style="font-size: 0.8em;">
         <div class="mx-3">
             <h4 class="text-success my-2">Leave Information</h4>
         </div>
         <div class="w-80 m-3">
             <label for="employeeId" class="form-label">Employee ID: </label>
-            <input type="text" name="leave[employeeId]" id="employeeId" class="form-control">
+            <input type="text" name="leave[employeeId]" id="employeeId" class="form-control" value="<%= employee.employeeId %>">
             
             <label for="firstName" class="form-label mt-2">First Name: </label>
-            <input type="text" name="leave[firstName]" id="firstName" class="form-control">
+            <input type="text" name="leave[firstName]" id="firstName" class="form-control" value="<%= employee.firstName %>">
             
             <label for="lastName" class="form-label mt-2">Last Name: </label>
-            <input type="text" name="leave[lastName]" id="lastName" class="form-control">
+            <input type="text" name="leave[lastName]" id="lastName" class="form-control" value="<%= employee.lastName %>">
             
             <div class="d-flex align-items-center mt-3">
                 <div class="me-2">
@@ -45,41 +45,8 @@
                 <button class="btn btn-success mx-3 w-30">
                     Submit
                 </button>
-                <a href="/leave-management" class="btn btn-danger">Back</a>
+                <a href="/employees/<%= employee.id %>" class="btn btn-danger">Back</a>
             </div>
         </div>
     </div>
 </form>
-
-<script>
-    const employeesData = JSON.parse('<%- JSON.stringify(employeeIds) %>');
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const employeeIdInput = document.getElementById('employeeId');
-      const firstNameInput = document.getElementById('firstName');
-      const lastNameInput = document.getElementById('lastName');
-  
-      // Function to update the first name and last name fields based on employeeId
-      const updateFormFields = (employeeData) => {
-   
-        firstNameInput.value = employeeData.firstName;
-        lastNameInput.value = employeeData.lastName;
-      };
-  
-      employeeIdInput.addEventListener('input', () => {
-        const employeeIdData = employeeIdInput.value.trim();
-  
-        // Find the matching employee in the 'employees' array based on the input value
-        const matchingEmployee = employeesData.find((employee) => employee.employeeId === employeeIdData);
-    
-        if (matchingEmployee) {
-          updateFormFields(matchingEmployee);
-        } else {
-          // If no matching employee is found, clear the form fields
-          firstNameInput.value = '';
-          lastNameInput.value = '';
-        }
-      });
-    });
-  </script>
-  

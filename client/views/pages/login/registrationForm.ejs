@@ -27,11 +27,21 @@
     </div>
 
     <div class="mb-3">
-        <label class="form-label" for="email">Password</label>
+        <label class="form-label" for="password">Password</label>
         <input class="form-control" type="password" id="password" name="password" required>
         <div class="valid-feedback">
             Looks good!
     </div>
+
+    <div class="mb-3">
+        <label class="form-label" for="role">Role</label>
+        <select class="form-control" name="role" id="role">
+            <% for(role of roles) { %>
+            <option value="<%= role %>"><%= role.toUpperCase() %></option>
+            <% } %>
+        </select>
+    </div>
+
     <div class="mb-3 mt-3 text-center">
         <button class="btn btn-success">Register</button>
     </div>

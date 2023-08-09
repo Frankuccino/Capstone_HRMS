@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const ExpressError = require('../../utils/ExpressError');
 const { employeeSchemaValidation } = require("../../schemas");
-const { viewAllEmployees, employeesForm, addEmployee, viewEmployee, updateEmployeeForm, updateEmployee, deleteEmployee, deactivateEmployee, activateEmployee} = require("../controller/employeeController");
+const { viewAllEmployees, employeesForm, addEmployee, viewEmployee, viewLeaveHistory, updateEmployeeForm, updateEmployee, deleteEmployee, deactivateEmployee, activateEmployee} = require("../controller/employeeController");
 const employee = require("../../models/employee");
 
 const employeeValidate = (req, res, next) => {
@@ -30,6 +30,9 @@ router.get('/employees', viewAllEmployees);
 router.get('/employees/form', employeesForm);
 router.post('/employees', employeeValidate, addEmployee);
 router.get('/employees/:id', viewEmployee);
+
+router.get('/employees/:id/leave-history', viewLeaveHistory);
+
 router.get('/employees/:id/update-employee-form', updateEmployeeForm);
 router.patch('/employees/:id/update',employeeValidate, updateEmployee);
 router.delete('/employees/:id', deleteEmployee);

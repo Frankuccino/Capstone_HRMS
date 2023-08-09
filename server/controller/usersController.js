@@ -1,19 +1,22 @@
 const mongoose = require('mongoose');
 const User = require('../../models/user');
+const user = require('../../models/user');
 
 let activePage = '/login'
+const roles =  ['admin', 'manager', 'staff', 'user'];
+
 
 exports.registrationForm = (req, res) => {
     activePage = '/register'
-    res.render('pages/user/registrationForm', {activePage});
+    res.render('pages/login/registrationForm', {activePage, roles});
 }
 
 // Register a User
 exports.registerUser = async (req, res) => {
     try {
-        const {email, firstName, lastName, username, password} = req.body;
+        const {email, firstName, lastName, username, password, role} = req.body;
 
-        const user = new User({email, username, firstName, lastName});
+        const user = new User({email, username, firstName, lastName, role});
         const registeredUser = await User.register(user, password);
 
         req.login(registeredUser, function(err) {
@@ -30,7 +33,7 @@ exports.registerUser = async (req, res) => {
 }
 
 exports.viewLogin = async (req, res) => {
-    res.render('pages/user/login', {activePage})
+    res.render('pages/login/login', {activePage})
 }
 
 exports.userLogin = async (req, res) => {

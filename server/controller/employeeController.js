@@ -73,9 +73,16 @@ exports.addEmployee = catchAsync(async (req, res) => {
 // View Specific Employee
 exports.viewEmployee = catchAsync(async (req, res)=>{
     const id = req.params.id;
-    const employee = await Employee.findById(id).populate('leaves');
+    const employee = await Employee.findById(id);
     res.render('pages/employee/emp-info',{employee, activePage})
 })
+
+exports.viewLeaveHistory = async (req, res) => {
+    const id = req.params.id;
+    const employee = await Employee.findById(id).populate('leaves');
+   
+    res.render('pages/employee/employeeLeaveHistory',{employee, activePage})
+}
 
 // View Update Employee Form
 exports.updateEmployeeForm = catchAsync(async (req, res)=>{
