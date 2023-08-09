@@ -80,3 +80,38 @@ tr:hover .actions  {
   scale: 1.2;
   color: red;
 }
+
+
+.loginNav {
+  height: 70px;
+  background: #E3F6E8;
+  mix-blend-mode: multiply;
+}
+
+.loginMain {
+  background-image: url("/images/loginBg.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+.login-container {
+  width: 400px;
+  height: 600px;
+  background-color: rgb(247, 247, 247, 0.8);
+  backdrop-filter: blur(5px);
+}
+
+.login-container img {
+  width: 120px;
+}
+
+.loginContent h1 {
+  font-size: 5em;
+  color: rgb(42, 44, 45, 0.8);
+}
+.loginContent h2 {
+  font-size: 3em;
+  color: rgb(42, 44, 45, 0.8);
+}

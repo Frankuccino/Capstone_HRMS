@@ -29,7 +29,7 @@
         </select>
     </div>
     <div class="d-flex justify-content-end mb-2">
-      
+            <div id="printButton"><button class="btn btn-light me-2" data-bs-toggle="tooltip" data-bs-html="true" data-placement="top" title="Print Table"><i class="bi bi-printer"></i></button></div>
             <input type="text" class="form-control me-2 me-5" id="searchInput" placeholder="Search for a name">
 
     </div>  
@@ -40,29 +40,29 @@
 
 <section class="d-flex mx-3 mb-5" style="max-height:75vh;">
     <div class="col-12 overflow-auto">
-        <table class="table table-striped border rounded-3">
+        <table class="table table-striped border rounded-3" id="employeeTable">
             <thead style="position: sticky; top: 0; background-color: white; z-index: 1;">
                 <tr>
-                    <th class="text-success" style="width:15%;">Employee ID</th>
-                    <th class="text-success" style="width:15%;">First Name</th>
-                    <th class="text-success" style="width:15%;">Last Name</th>
-                    <th class="text-success" style="width:10%;">Role</th>
-                    <th class="text-success" style="width:20%;">Department</th>
-                    <th class="text-success" style="width:10%;">Status</th>        
-                    <th class="text-success" style="width:10%;"></th>        
+                    <th class="text-success col text-center">Employee ID</th>
+                    <th class="text-success col text-center">First Name</th>
+                    <th class="text-success col text-center">Last Name</th>
+                    <th class="text-success col text-center">Role</th>
+                    <th class="text-success col text-center">Department</th>
+                    <th class="text-success col text-center">Status</th>        
+                    <th class="text-success no-print text-center"></th>        
                 </tr>
             </thead>
-            <tbody id="employeeTable">
+            <tbody id="">
                 <% for(let employee of employees) { %>
                 <tr class="employee-row">
-                    <td class="align-middle employee-position" style="font-size:0.9em;"><%=employee.employeeId  %></td>
-                    <td class="align-middle employee-firstName" style="font-size:0.9em;"><%=employee.firstName  %></td>
-                    <td class="align-middle employee-lastName" style="font-size:0.9em;"><%=employee.lastName  %></td>
-                    <td class="align-middle" style="font-size:0.9em;"><%=employee.designation %></td>
-                    <td class="align-middle employee-office" style="font-size:0.9em;"><%=employee.office  %></td>
-                    <td class="align-middle employee-status <%- employee.isActive === true ? 'text-success' : 'text-danger' %>" style="font-size:0.9em;"><%= employee.isActive === true ? 'Active' : 'Inactive' %></td>
-                  
-                    <td class="status">
+                    <td class="align-middle text-center employee-position" style="font-size:0.9em;"><%=employee.employeeId  %></td>
+                    <td class="align-middle text-center employee-firstName" style="font-size:0.9em;"><%=employee.firstName  %></td>
+                    <td class="align-middle text-center employee-lastName" style="font-size:0.9em;"><%=employee.lastName  %></td>
+                    <td class="align-middle text-center " style="font-size:0.9em;"><%=employee.designation %></td>
+                    <td class="align-middle text-center employee-office" style="font-size:0.9em;"><%=employee.office  %></td>
+                    <td class="align-middle text-center employee-status <%- employee.isActive === true ? 'text-success' : 'text-danger' %>" style="font-size:0.9em;"><%= employee.isActive === true ? 'Active' : 'Inactive' %></td>
+                    
+                    <td class="status no-print">
                         <div class="actions col d-flex justify-content-center">
                             <a href="/employees/<%=employee._id %>"><button class="btn btn-sm px-3 ms-1" style="font-size: 1.2em;" data-toggle="tooltip" data-placement="top" title="View"><i class="bi bi-eye"></i></button></a>
                             
@@ -80,11 +80,52 @@
                             <% } %>
                         </div>
                     </td>
+
                 </tr>
                 <% } %>
             </tbody>
         </table>
+ 
     </div>
 </section>
-
+<script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
+<script>
+    document.getElementById('printButton').addEventListener('click', function () {
+        // Use print.js to print the table
+        printJS({
+            printable: 'employeeTable', // Replace with the ID of your table element
+            type: 'html',
+            style: `
+                tr {
+                    margin-top: 20px; 
+                    margin-bottom: 20px; 
+                }
+               
+            `
+        });
+    });
+   // Hover on the print button event listener
+   document.getElementById('printButton').addEventListener('mouseenter', function() {
+        // Hide elements with the class 'no-print' on button hover
+        const hiddenElements = document.querySelectorAll('.no-print');
+        hiddenElements.forEach(function (element) {
+            element.style.display = 'none';
+        });
+    });
+    document.getElementById('printButton').addEventListener('mouseleave', function() {
+        // Show hidden elements when leaving button hover
+        const hiddenElements = document.querySelectorAll('.no-print');
+        hiddenElements.forEach(function (element) {
+            element.style.display = '';
+        });
+    });
+    // Hover off the print button event listener
+    document.getElementById('printButton').addEventListener('click', function() {
+        // Show hidden elements when leaving button hover
+        const hiddenElements = document.querySelectorAll('.no-print');
+        hiddenElements.forEach(function (element) {
+            element.style.display = '';
+        });
+    });
+</script>
 

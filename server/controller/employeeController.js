@@ -102,7 +102,7 @@ exports.updateEmployee = catchAsync(async(req, res) => {
     const updateEmployeeId = await Employee.findByIdAndUpdate(id, { $set: {employeeId: employeeId}} )
     
     const employeeUpdate = await Employee.findByIdAndUpdate(id,{...req.body.employee});
-
+    req.flash('success', 'You Updated The Employee Information');
     res.redirect(`/employees/${id}`)
 })
 
@@ -123,6 +123,7 @@ exports.deleteEmployee = catchAsync(async (req, res) => {
 exports.deactivateEmployee = async (req, res) => {
     const {id} = req.params;
     const employee = await Employee.findByIdAndUpdate(id, {$set: {isActive: false}})
+    req.flash('error', 'You Deactivated An Employee');
     res.redirect(`/employees/${id}`)
 }
 
@@ -130,6 +131,7 @@ exports.deactivateEmployee = async (req, res) => {
 exports.activateEmployee = async (req, res) => {
     const {id} = req.params;
     const employee = await Employee.findByIdAndUpdate(id, {$set: {isActive: true}})
+    req.flash('success', 'You Activated An Employee');
     res.redirect(`/employees/${id}`)
 }
 
