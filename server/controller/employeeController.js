@@ -147,7 +147,6 @@ exports.deactivateEmployee = async (req, res) => {
     }
     const transaction =  new Transaction(addTransaction);
     await transaction.save();
-
     req.flash('error', `You Deactivated ${employeeName}`);
     res.redirect(`/employees/${id}`)
 }
@@ -168,10 +167,24 @@ exports.activateEmployee = async (req, res) => {
     }
     const transaction =  new Transaction(addTransaction);
     await transaction.save();
-
     req.flash('success', `You Activated ${employeeName}`);
     res.redirect(`/employees/${id}`)
 }
 
 
+module.exports.uploadImage = async(req, res) => {
+    const {id} = req.params;
+    const employee = await Employee.findById(id);
+    const fileData = req.file;
 
+    if(fileData){
+        const uploadedImage = employee.uploadedImage;
+
+        uploadedImage.filename = fileData.originalname;
+        uploadedImage.contentType = fileData.mimetype;
+        uploadedImage.data = fileData.buffer;
+        console.log(req.file)
+        await employee.save();
+        res.redirect(`/employees/${id}`)
+    }
+}

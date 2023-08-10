@@ -62,7 +62,7 @@
                     <td class="align-middle text-center employee-office" style="font-size:0.9em;"><%=employee.office  %></td>
                     <td class="align-middle text-center employee-status <%- employee.isActive === true ? 'text-success' : 'text-danger' %>" style="font-size:0.9em;"><%= employee.isActive === true ? 'Active' : 'Inactive' %></td>
                     
-                    <td class="status no-print">
+                    <td class="status no-print"> 
                         <div class="actions col d-flex justify-content-center">
                             <a href="/employees/<%=employee._id %>"><button class="btn btn-sm px-3 ms-1" style="font-size: 1.2em;" data-toggle="tooltip" data-placement="top" title="View"><i class="bi bi-eye"></i></button></a>
                             

@@ -6,3 +6,7 @@ const activePage = '/';
 exports.viewDashboard = async (req, res) => {
     res.render('pages/dashboard/dashboard', {activePage});
 }
+
+exports.test = async (req, res) => {
+    res.render('pages/dashboard/test');
+}

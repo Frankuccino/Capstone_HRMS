@@ -61,6 +61,13 @@ body {
   color: #017119
 }
 
+.photo-upload {
+ opacity: 0;
+}
+
+.photo-upload:hover {
+  opacity: 1;
+}
 /* .actions {
  opacity: 0;
 }

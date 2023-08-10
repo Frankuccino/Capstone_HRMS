@@ -37,7 +37,10 @@ exports.viewLogin = async (req, res) => {
 }
 
 exports.userLogin = async (req, res) => {
-    req.flash('success', 'Welcome back!');
+    const userFirstName = req.user.firstName;
+    const upperCasedName= userFirstName.charAt(0).toUpperCase() + userFirstName.slice(1).toLowerCase();
+
+    req.flash('success', `Welcome back, ${upperCasedName}! `);
     res.redirect('/');
 }
 
