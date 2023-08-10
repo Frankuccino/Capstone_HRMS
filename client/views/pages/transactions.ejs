@@ -3,9 +3,10 @@
 
     <h3 class="page-header mt-4 ms-3">User Logs</h3>
 
-    <div class="col-7 m-auto">
-        <%for(let transaction of transactions) {%>
-                <p><%= transaction.transaction %> - Date: <%= transaction.createdAt %></p>
-            <% } %>
+    <div class="col-7 m-auto overflow-auto">
+        <% for(let i = transactions.length - 1; i >= 0; i--) { %>
+            <p><%= transactions[i].transaction %> - Date: <%= transactions[i].createdAt %></p>
+        <% } %>
     </div>
+    
 

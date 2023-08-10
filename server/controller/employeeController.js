@@ -7,6 +7,7 @@ const designations = require('../../seeds/designation');
 // Models
 const Employee = require('../../models/employee');
 const Transaction = require('../../models/transaction')
+const User = require('../../models/user');
 
 // DB Connection
 mongoose.connect('mongodb://127.0.0.1:27017/hrms')
@@ -117,8 +118,13 @@ exports.deleteEmployee = catchAsync(async (req, res) => {
     const id = req.params.id;
     const employee = await Employee.findById(id);
     await Employee.findByIdAndDelete(id);
+
+    console.log(req.user.id);
+    const userId = req.user.id;
+    const user = await User.findById(userId);
+
     const addTransaction = {
-        transaction: `${employee.firstName} has been deleted`
+        transaction: `${employee.firstName} has been deleted ${user.firstName} ${user.lastName}`
     }
 
     const transaction =  new Transaction(addTransaction);
@@ -130,6 +136,15 @@ exports.deleteEmployee = catchAsync(async (req, res) => {
 exports.deactivateEmployee = async (req, res) => {
     const {id} = req.params;
     const employee = await Employee.findByIdAndUpdate(id, {$set: {isActive: false}})
+
+    const userId = req.user.id;
+    const user = await User.findById(userId);
+    const addTransaction = {
+        transaction: `${employee.firstName} is deactivated by ${user.firstName} ${user.lastName}`
+    }
+    const transaction =  new Transaction(addTransaction);
+    await transaction.save();
+
     req.flash('error', 'You Deactivated An Employee');
     res.redirect(`/employees/${id}`)
 }
@@ -137,8 +152,16 @@ exports.deactivateEmployee = async (req, res) => {
 // Activate an employee
 exports.activateEmployee = async (req, res) => {
     const {id} = req.params;
-    console.log(req.user);
     const employee = await Employee.findByIdAndUpdate(id, {$set: {isActive: true}})
+
+    const userId = req.user.id;
+    const user = await User.findById(userId);
+    const addTransaction = {
+        transaction: `${employee.firstName} is activated by ${user.firstName} ${user.lastName}`
+    }
+    const transaction =  new Transaction(addTransaction);
+    await transaction.save();
+
     req.flash('success', 'You Activated An Employee');
     res.redirect(`/employees/${id}`)
 }

@@ -47,7 +47,7 @@
                 </div>
                 <div>
                     <a href="/employees/<%= employee._id %>/update-employee-form"><button class="btn btn-sm ms-1" style="font-size:1.2em;" data-toggle="tooltip" data-placement="top" title="Edit"><i class="bi bi-pencil"></i></button></a>
-                </div>
+                </div> 
                 <div>
                     <% if(currentUser && currentUser.role === 'manager' || currentUser.role === 'admin') { %>
                     <% if(employee.isActive === true) { %>
@@ -60,8 +60,15 @@
                             <a href=""><button class="btn btn-sm activate ms-1" style="font-size:1.5em;" data-bs-toggle="tooltip" data-bs-html="true" data-placement="top" title="Activate"><i class="bi-toggle2-off"></i></button></a>
                         </form>
                     <% } %>
-                    <% } %>
+                    <% } %>   
                 </div>
+                    <% if(currentUser && currentUser.role === 'admin') { %>
+                <div>
+                    <form action="/employees/<%= employee._id %>?_method=DELETE" method="POST">
+                        <a href=""><button class="btn btn-sm activate ms-1" style="font-size:1.5em;" data-bs-toggle="tooltip" data-bs-html="true" data-placement="top" title="Delete Employee"><i class="bi bi-person-x-fill"></i></button></a>
+                    </form>
+                </div>
+                <% } %>   
             </div>
         </div>
     </div>

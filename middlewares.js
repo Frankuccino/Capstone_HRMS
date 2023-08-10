@@ -1,4 +1,4 @@
-const {leaveSchemaValidation} = require('./schemas');
+const {leaveSchemaValidation, employeeSchemaValidation} = require('./schemas');
 
 module.exports.isLoggedIn = (req, res, next) =>{
     req.session.returnTo = req.originalUrl;
@@ -22,8 +22,25 @@ module.exports.leaveValidate = (req, res, next) => {
        const msg = error.details.map(el=> el.message).join(',');
     //    throw new ExpressError(msg,400);
          req.flash('error', `${msg}`);
-
          res.redirect(`${req.originalUrl}/new-leave-request`);
+    }else{
+      next();
+    }
+}
+
+// Employee Form Validation
+module.exports.employeeValidate = (req, res, next) => {
+    const {id} = req.params;
+    const {error} = employeeSchemaValidation.validate(req.body)
+    if(error){
+       const msg = error.details.map(el=> el.message).join(',');
+    //    throw new ExpressError(msg,400);
+        req.flash('error', `${msg}`);
+        if(id){
+            res.redirect(`update-employee-form`);
+        } else {
+            res.redirect(`employees/form`);
+        }
     }else{
       next();
     }
@@ -33,8 +50,8 @@ module.exports.leaveValidate = (req, res, next) => {
 module.exports.isAccessible = async (req, res, next) => {
     const {id} = req.params;
     const currentUserAccess = req.user;
-    const accessibleBy = currentUserAccess.role === 'admin' || 'manager';
-    if(currentUserAccess.role != accessibleBy) {
+    const accessibleBy = currentUserAccess.role === 'admin' || currentUserAccess.role === 'manager';
+    if(!accessibleBy) {
       req.flash('error', 'You do not have permission to perform this action!');
       res.redirect(`/employees/${id}`)
     } else {
