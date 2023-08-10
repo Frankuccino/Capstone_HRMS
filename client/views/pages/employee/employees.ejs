@@ -67,7 +67,7 @@
                             <a href="/employees/<%=employee._id %>"><button class="btn btn-sm px-3 ms-1" style="font-size: 1.2em;" data-toggle="tooltip" data-placement="top" title="View"><i class="bi bi-eye"></i></button></a>
                             
                             <a href="/employees/<%= employee._id %>/update-employee-form"><button class="btn btn-sm ms-1" style="font-size:1em;" data-toggle="tooltip" data-placement="top" title="Edit"><i class="bi bi-pencil"></i></button></a>
-
+                            <% if(currentUser && currentUser.role === 'manager' || currentUser.role === 'admin') { %>
                             <% if(employee.isActive === true) { %>
                             <form action="/employees/<%= employee._id %>/deactivate?_method=PATCH" method="POST">
                                <button class="btn btn-sm deactivate ms-1" style="font-size:1.2em;" data-bs-toggle="tooltip" data-bs-html="true" data-placement="top" title="Deactivate"><i class="bi bi-toggle2-on"></i></button>
@@ -77,6 +77,7 @@
                                 <form action="/employees/<%= employee._id %>/activate?_method=PATCH" method="POST">
                                     <button class="btn btn-sm activate ms-1" style="font-size:1.2em;" data-bs-toggle="tooltip" data-bs-html="true" data-placement="top" title="Activate"><i class="bi-toggle2-off"></i></button>
                                 </form>
+                            <% } %>
                             <% } %>
                         </div>
                     </td>

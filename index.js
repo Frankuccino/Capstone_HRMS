@@ -37,6 +37,10 @@ const sessionConfig = {
     secret: 'ourhrmssecret',
     resave: false,
     saveUninitialized: false,
+    // cookie: {
+    //     expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
+    //     maxAge:  1000 * 60 * 60 * 24 * 7
+    // }
 }
 
 app.use(session(sessionConfig));
@@ -52,11 +56,9 @@ passport.deserializeUser(User.deserializeUser());
 // Connect Flash
 app.use(flash());
 app.use((req, res, next) => {
-   
     res.locals.currentUser = req.user;
     res.locals.success = req.flash('success');
     res.locals.error = req.flash('error');
-    
     next();
 })
 
@@ -73,6 +75,7 @@ app.use('*',(req, res, next)=>{
 })
 
 const activePage = 'nA';
+
 // Error Handler Middleware
 app.use((err, req, res, next) => {
     const {statusCode = 500} = err;

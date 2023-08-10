@@ -137,6 +137,7 @@ exports.deactivateEmployee = async (req, res) => {
 // Activate an employee
 exports.activateEmployee = async (req, res) => {
     const {id} = req.params;
+    console.log(req.user);
     const employee = await Employee.findByIdAndUpdate(id, {$set: {isActive: true}})
     req.flash('success', 'You Activated An Employee');
     res.redirect(`/employees/${id}`)

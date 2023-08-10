@@ -4,29 +4,31 @@
         <img src="https://ayungon.gov.ph/static/media/ayungonLogo.fc0153c16641062c3ae1.png" alt="logo" style="width: 100px;">
     </div>
     
-        <ul class="nav nav-pills flex-column ms-0">
-            <a href="/" class="text-decoration-none"><li class="nav-item border-4 border-start border-light py-3 text-center <%- activePage === '/activePage' ? 'active' : '' %>">Dashboard</li></a>
-            <a href="/employees" class="text-decoration-none"><li class="nav-item border-4 border-start border-light py-3 text-center <%- activePage === '/employees' ? 'active' : '' %>">Employee Profiles</li></a>
-            <a href="/leave-management" class="text-decoration-none"><li class="nav-item border-4 border-start border-light py-3 text-center <%- activePage === '/leave-management' ? 'active' : '' %>">Leave Management</li></a>
-            <a href="#" class="text-decoration-none"><li class="nav-item border-4 border-start border-light py-3 text-center <%- activePage === '' ? 'active' : '' %>">Application List</li></a>
-            <a href="/reports" class="text-decoration-none"><li class="nav-item border-4 border-start border-light py-3 text-center <%- activePage === '/reports' ? 'active' : '' %>">User Logs</li></a>
-            <a href="#" class="text-decoration-none"><li class="nav-item border-4 border-start border-light py-3 text-center <%- activePage === '' ? 'active' : '' %>">Settings</li></a>
+        <ul class="nav nav-pills flex-column ms-0 text-center">
+            <a href="/" class="text-decoration-none align-items-center"><li class="border-4 border-start border-light py-3<%- activePage === '/activePage' ? 'active' : '' %>"><i class="bi bi-laptop pe-2"></i>Dashboard</li></a>
+            <a href="/employees" class="text-decoration-none <%- activePage === '/employees' ? 'active' : '' %>"><li class="nav-item border-4 border-start border-light py-3"><i class="bi bi-people pe-2"></i>Employee Profiles</li></a>
+            <a href="/leave-management" class="text-decoration-none"><li class="nav-item border-4 border-start border-light py-3<%- activePage === '/leave-management' ? 'active' : '' %>"><i class="bi bi-calendar2-month"></i> Leave Management</li></a>
+            <a href="#" class="text-decoration-none"><li class="nav-item border-4 border-start border-light py-3<%- activePage === '' ? 'active' : '' %>"><i class="bi bi-layout-text-window pe-2"></i> Application List</li></a>
+            <a href="/reports" class="text-decoration-none"><li class="nav-item border-4 border-start border-light py-3<%- activePage === '/reports' ? 'active' : '' %>"><i class="bi bi-person-vcard pe-3"></i>User Logs</li></a>
+            <% if(currentUser && currentUser.role === 'admin') { %>
+            <a href="/register" class="text-decoration-none"><li class="nav-item border-4 border-start border-light py-3<%- activePage === '' ? 'active' : '' %>">Register</li></a>
+            <% } %>
         </ul>
     
-        <!-- <div class="d-flex fixed-bottom m-4">
+        <div class="d-flex fixed-bottom m-4">
             <div class="" >
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_lNMJrBqDprnS8Uwz1P3yTM6-APEjZyvYG-AprYt_bIqeykscqXC2RP-fsZZATTWTH_Q&usqp=CAU" alt=""
                 style="width:50px; height:50px;"
                 class="rounded-circle shadow">
             </div>
             <div class="align-items-center mx-3">
-                <p class="mb-1">Sample Employee</p>
-                <p class="mb-1" style="font-size:0.9em;">Position</p>
+                <p class="mb-1"><%= currentUser.firstName.charAt(0).toUpperCase() + currentUser.firstName.slice(1).toLowerCase() %> <%= currentUser.lastName.charAt(0).toUpperCase() + currentUser.lastName.slice(1).toLowerCase()%></p>
+                <p class="mb-1" style="font-size:0.9em;"><%= currentUser.role.charAt(0).toUpperCase() + currentUser.role.slice(1).toLowerCase() %></p>
             </div>
-        </div> -->
+            <form class="mt-3" action="/logout" method="POST">
+               <button>Logout</button>
+            </form>
+        </div>
 
-        <form action="/logout" method="POST">
-           <button>Logout</button>
-        </form>
     
 </aside>

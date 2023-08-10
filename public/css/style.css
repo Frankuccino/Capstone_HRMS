@@ -36,7 +36,6 @@ body {
 }
 
 .sidebar a:hover {
-  text-decoration: none;
   color: #37B353;
 }
 
@@ -45,7 +44,7 @@ body {
 }
 
 /* for the Active page Style */
-.active{
+.active {
   color: #37B353 ;
 }
 
@@ -126,12 +125,9 @@ tr:hover .actions  {
 }
 
 .success {
-  background: linear-gradient(to right, #efacac, #d9d673,#c5d973, #8dc9e3, #9ee7ae  )
+  background: linear-gradient(to right, #acefbd, #73d990,#73d975, #73d990, #acefbd  )
 }
 
 .error {
-
-  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjrPnu7LcwDb3H1_YZDVZr2AVYv11oehdA0w&usqp=CAU");
-  object-fit: cover;
-  color: #fff;
+  background: linear-gradient(to right, #efacac, #d97373,#d66969, #e3918d, #e7a79e  )
 }
