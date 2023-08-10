@@ -41,3 +41,15 @@ exports.userLogin = async (req, res) => {
     res.redirect('/');
 }
 
+
+exports.logout = (req,res,next) =>{
+  req.logout(function(err){
+          if(err){
+              return next(err);
+          }
+
+          req.flash('success','You are now logged out')
+          res.redirect('/login')
+  })
+}
+
