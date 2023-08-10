@@ -46,7 +46,7 @@ module.exports.employeeValidate = (req, res, next) => {
     }
 }
 
-// Authorization
+// Accessibility
 module.exports.isAccessible = async (req, res, next) => {
     const {id} = req.params;
     const currentUserAccess = req.user;
@@ -59,13 +59,25 @@ module.exports.isAccessible = async (req, res, next) => {
     }
   }
 
+// Route protection for admin and manager excluding staffs
+  module.exports.isAuthorizedBy = async (req, res, next) => {
+    const currentUserAccess = req.user;
+    const accessibleBy = currentUserAccess.role === 'admin' || currentUserAccess.role === 'manager';
+    if(!accessibleBy) {
+      req.flash('error', 'You are not authorized to go there!');
+      res.redirect(`/`)
+    } else {
+      next();
+    }
+  }
+
+// Middleware for admin access only
   module.exports.isAccessibleByAdminOnly = async (req, res, next) => {
-   
     const currentUserAccess = req.user;
     const accessibleBy = currentUserAccess.role === 'admin';
-    if(currentUserAccess.role != accessibleBy) {
+    if(! accessibleBy) {
       req.flash('error', 'Admin actions only!');
-      res.redirect(`/register`)
+      res.redirect(`/`)
     } else {
       next();
     }

@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
-const {isLoggedIn, storeReturnTo, isAccessible, isAccessibleByAdminOnly} = require('../../middlewares');
+const {isLoggedIn, storeReturnTo, isAccessibleByAdminOnly} = require('../../middlewares');
 const {registrationForm, registerUser, viewLogin, userLogin,logout} = require('../controller/usersController');
 
 
-router.get('/register', isLoggedIn, isAccessible, registrationForm);
+router.get('/register', isLoggedIn, isAccessibleByAdminOnly, registrationForm);
 router.post('/register', isLoggedIn, isAccessibleByAdminOnly, registerUser);
 
 router.get('/login', viewLogin)

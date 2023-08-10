@@ -65,7 +65,7 @@
                     <% if(currentUser && currentUser.role === 'admin') { %>
                 <div>
                     <form action="/employees/<%= employee._id %>?_method=DELETE" method="POST">
-                        <a href=""><button class="btn btn-sm activate ms-1" style="font-size:1.5em;" data-bs-toggle="tooltip" data-bs-html="true" data-placement="top" title="Delete Employee"><i class="bi bi-person-x-fill"></i></button></a>
+                        <a href=""><button class="btn btn-sm delete ms-1" style="font-size:1.5em;" data-bs-toggle="tooltip" data-bs-html="true" data-placement="top" title="Delete Employee"><i class="bi bi-person-x-fill"></i></button></a>
                     </form>
                 </div>
                 <% } %>   

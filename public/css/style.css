@@ -48,6 +48,14 @@ body {
   color: #37B353 ;
 }
 
+.delete {
+  color: #e1736d;
+}
+
+.delete:hover {
+  color: #ab3636;
+}
+
   /* Card styling */
 .card-head {
   color: #017119

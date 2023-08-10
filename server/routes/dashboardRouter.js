@@ -4,6 +4,6 @@ const { viewDashboard } = require('../controller/dashboardController');
 const {isLoggedIn} = require('../../middlewares');
 
 
-router.get('/',isLoggedIn, viewDashboard);
+router.get('/', isLoggedIn, viewDashboard);
 
 module.exports = router;

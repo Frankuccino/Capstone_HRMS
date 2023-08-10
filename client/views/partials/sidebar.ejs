@@ -6,11 +6,13 @@
     
       
         <ul class="nav nav-pills flex-column ms-0">
-            <a href="/dashboard" class="text-decoration-none"><li class="nav-item border-4 border-start border-light py-3 text-center <%- activePage === '/dashboard' ? 'active' : '' %>"><i class="bi bi-laptop pe-2"></i>Dashboard</li></a>
+            <a href="/" class="text-decoration-none"><li class="nav-item border-4 border-start border-light py-3 text-center <%- activePage === '/dashboard' ? 'active' : '' %>"><i class="bi bi-laptop pe-2"></i>Dashboard</li></a>
             <a href="/employees" class="text-decoration-none"><li class="nav-item border-4 border-start border-light py-3 text-center <%- activePage === '/employees' ? 'active' : '' %>"><i class="bi bi-people pe-2"></i>Employee Profiles</li></a>
             <a href="/leave-management" class="text-decoration-none"><li class="nav-item border-4 border-start border-light py-3 text-center <%- activePage === '/leave-management' ? 'active' : '' %>"><i class="bi bi-calendar2-month pe-3"></i>Leave Management</li></a>
             <a href="/applications" class="text-decoration-none"><li class="nav-item border-4 border-start border-light py-3 text-center <%- activePage === '/applications' ? 'active' : '' %>"><i class="bi bi-layout-text-window pe-2"></i> Applications</li></a>
+            <% if(currentUser && currentUser.role !== 'staff') { %>
             <a href="/reports" class="text-decoration-none"><li class="nav-item border-4 border-start border-light py-3 text-center <%- activePage === '/reports' ? 'active' : '' %>"><i class="bi bi-person-vcard pe-3"></i>User Logs</li></a>
+            <% } %>
             <% if(currentUser && currentUser.role === 'admin') { %>
                 <a href="/register" class="text-decoration-none"><li class="nav-item border-4 border-start border-light py-3 text-center<%- activePage === '' ? 'active' : '' %>">Register</li></a>
             <% } %>
