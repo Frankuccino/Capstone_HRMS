@@ -27,8 +27,8 @@
         </select>
         <select name="" id="statusFilter" class="ps-1 ms-2 me-2 rounded">
             <option value="">All Status</option>
-            <option value="Active">Active</option>
-            <option value="Inactive">Inactive</option>
+            <option value="Pending">Pending</option>
+            <option value="Rejected">Rejected</option>
         </select>
     </div>
     <div class="d-flex justify-content-end mb-2">
@@ -56,7 +56,7 @@
                 <% for(let i = 0; i < 20; i++) { %>
                 <% for (let applicant of applicants) { %>
                 <tr class="applicant-row" style="font-size: 0.9em;">
-                    <td class="align-middle text-center"><%= applicant.employeeId %></td>
+                    <td class="align-middle text-center applicant-position"><%= applicant.employeeId %></td>
                     <td class="align-middle text-center applicant-firstName" ><%= applicant.firstName %></td>
                     <td class="align-middle text-center applicant-lastName" ><%= applicant.lastName %></td>
                     <td class="align-middle text-center applicant-office"><%= applicant.office %></td>
