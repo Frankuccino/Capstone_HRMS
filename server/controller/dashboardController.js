@@ -42,7 +42,7 @@ exports.viewDashboard = async (req, res) => {
  
 
     res.render('pages/dashboard/dashboard', {activePage, employeeCount, jobOrderCount, casualCount, regularCount, applicantCount, 
-        officeMayor, officeCivil, officeSangguniang, officeSB, officeHuman, officeMPDC, officeLCR, officeGen, officeBudget, officeAccountant, officeTreasurer, officeAssessor, officeAuditing, officeAuditing, officeLegal, officeMPOC, officeHigh, officeManpower, officeHealth, officeDSWD, officeAgriculture, officeEngineering, officeOperation, officeLGSEF, officeSpecial, officeBugetary
+        officeMayor, officeCivil, officeSangguniang, officeSB, officeHuman, officeMPDC, officeLCR, officeGen, officeBudget, officeAccountant, officeTreasurer, officeAssessor, officeAuditing, officeLegal, officeMPOC, officeHigh, officeManpower, officeHealth, officeDSWD, officeAgriculture, officeEngineering, officeOperation, officeLGSEF, officeSpecial, officeBugetary
     
     });
 }
