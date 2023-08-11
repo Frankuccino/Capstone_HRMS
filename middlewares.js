@@ -89,7 +89,18 @@ module.exports.isAccessible = async (req, res, next) => {
 // Middleware for admin access only
   module.exports.isAccessibleByAdminOnly = async (req, res, next) => {
     const currentUserAccess = req.user;
-    const accessibleBy = currentUserAccess.role === 'admin';
+    const accessibleBy = currentUserAccess.role === 'admin' ;
+    if(!accessibleBy) {
+      req.flash('error', 'Admin actions only!');
+      res.redirect(`/`)
+    } else {
+      next();
+    }
+  }
+
+  module.exports.isAccessibleByCurrent = async (req, res, next) => {
+    const currentUserAccess = req.user;
+    const accessibleBy = currentUserAccess.role === 'admin' || currentUserAccess;
     if(!accessibleBy) {
       req.flash('error', 'Admin actions only!');
       res.redirect(`/`)

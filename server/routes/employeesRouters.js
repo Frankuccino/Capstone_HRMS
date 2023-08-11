@@ -1,13 +1,12 @@
 const express = require("express");
 const router = express.Router();
 const multer = require('multer');
-const ExpressError = require('../../utils/ExpressError');
-const { employeeSchemaValidation } = require("../../schemas");
-const employee = require("../../models/employee");
-const { viewAllEmployees, employeesForm, addEmployee, viewEmployee, viewLeaveHistory, updateEmployeeForm, updateEmployee, deleteEmployee, deactivateEmployee, activateEmployee, uploadImage} = require("../controller/employeeController");
-const {isLoggedIn, isAccessible, employeeValidate, isAccessibleByAdminOnly} = require('../../middlewares');
 const storage = multer.memoryStorage(); // Store the uploaded file in memory as a Buffer
 const upload = multer({ storage: storage });
+// Middlewares
+const {isLoggedIn, isAccessible, employeeValidate, isAccessibleByAdminOnly} = require('../../middlewares');
+// Controllers
+const { viewAllEmployees, employeesForm, addEmployee, viewEmployee, viewLeaveHistory, updateEmployeeForm, updateEmployee, deleteEmployee, deactivateEmployee, activateEmployee, uploadImage} = require("../controller/employeeController");
 
 router.get('/employees', isLoggedIn, viewAllEmployees);
 router.get('/employees/form', isLoggedIn, employeesForm);

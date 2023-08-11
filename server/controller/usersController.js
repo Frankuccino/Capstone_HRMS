@@ -113,3 +113,19 @@ exports.deleteUser = async(req,res) =>{
   await User.findByIdAndDelete(id);
   res.redirect('/users');
 }
+
+module.exports.uploadImage = async(req, res) => {
+  const {id} = req.params;
+  const user = await User.findById(id);
+  const fileData = req.file;
+
+  if(fileData){
+      const uploadedImage = user.uploadedImage;
+      uploadedImage.filename = fileData.originalname;
+      uploadedImage.contentType = fileData.mimetype;
+      uploadedImage.data = fileData.buffer;
+      console.log(req.file)
+      await user.save();
+      res.redirect(`/users/${id}`)
+  }
+}
