@@ -143,7 +143,7 @@ exports.deactivateEmployee = async (req, res) => {
     const lastName = user.lastName.charAt(0).toUpperCase() + user.lastName.slice(1).toLowerCase()
     
     const addTransaction = {
-        transaction: `${employee.firstName} is activated by ${firstName} ${lastName}`
+        transaction: `${employee.firstName} is deactivated by ${firstName} ${lastName}`
     }
     const transaction =  new Transaction(addTransaction);
     await transaction.save();

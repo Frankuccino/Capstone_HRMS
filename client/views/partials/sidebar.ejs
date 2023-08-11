@@ -29,9 +29,12 @@
                 <div class="align-items-center mx-3">
                     <p class="mb-1"><%= currentUser.firstName.charAt(0).toUpperCase() + currentUser.firstName.slice(1).toLowerCase() %> <%= currentUser.lastName.charAt(0).toUpperCase() + currentUser.lastName.slice(1).toLowerCase()%></p>
                     <p class="mb-1" style="font-size:0.9em;"><%= currentUser.role.charAt(0).toUpperCase() + currentUser.role.slice(1).toLowerCase() %></p> 
-                    <form class="" action="/logout" method="POST">
-                        <button><i class="bi bi-box-arrow-left pe-2"></i>Logout</button>
-                     </form>
+                    <form class="d-flex align-items-center" action="/logout" method="POST">
+                        <button class="btn btn-light border-0" type="submit">
+                          <i class="bi bi-box-arrow-left pe-2"></i>Logout
+                        </button>
+                      </form>
+                      
                 </div>
             </div>
         </div>
