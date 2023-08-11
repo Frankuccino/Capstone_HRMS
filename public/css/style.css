@@ -16,6 +16,10 @@ body {
     color: #ADADAD;
   }
 
+  .gray-text:hover{
+    color: #999999;
+  }
+
 .page-header {
   background: linear-gradient(to right, #37B353, #40734B, #40734B, #40734B  );
   -webkit-background-clip: text; /* For Safari/Chrome */

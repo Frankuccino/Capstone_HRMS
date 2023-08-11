@@ -71,7 +71,7 @@ app.use('', transactionRouters)
 app.use('', usersRouters)
 
 app.use('*',(req, res, next)=>{
-    next(new ExpressError('Page not found Error BOI!', 404));
+    next(new ExpressError('Sorry, the page not found!', 404));
 })
 
 const activePage = 'nA';
