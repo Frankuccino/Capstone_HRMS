@@ -1,7 +1,7 @@
 <% layout('/layouts/boilerplate') %>
 <% const activePage = '/applications' %>
 <div>
-    <h3 class="my-3 page-header mt-1 ms-3">Edit Applicant</h3>
+    <h3 class="my-3 page-header mt-4 ms-3">Edit Applicant</h3>
 </div>
 
 <form action="/applications/<%= applicant.id %>/?_method=PATCH" method="POST" novalidate class="validated-form">
@@ -142,11 +142,9 @@
                     <input type="text" name="applicant[emerRelation]" id="emerRelation" class="form-control w-50" value="<%= applicant.emerRelation %>" required>
                 </div>
             </div>
-            <div class="m-3 text-center">
-                <button class="btn btn-success mx-2">Submit</button>
-                <a href="/applications" class="btn btn-danger mx-2">Back</a>
+            <div class="position-absolute top-0 end-0 mt-3 me-3">
+                <a href="/applications" class="btn backbtn mx-1 ps-3 pe-3"><i class="bi bi-arrow-90deg-left me-2"></i>Back</a>
             </div>
-            
         </div>
     </div>
     

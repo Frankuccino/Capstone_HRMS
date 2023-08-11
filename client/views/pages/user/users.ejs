@@ -32,7 +32,7 @@
             <tbody>
                 <% for(let user of users) { %>
                 <tr class="user-row">
-                    <td class="align-middle user-userName" style="font-size:0.9em;"><%= textFormat(user.username)  %></td>
+                    <td class="align-middle user-userName" style="font-size:0.9em;"><%= user.username %></td>
                     <td class="align-middle user-firstName" style="font-size:0.9em;"><%= textFormat(user.firstName)  %></td>
                     <td class="align-middle user-lastName" style="font-size:0.9em;"><%= textFormat(user.lastName)  %></td>
                     <td class="align-middle user-role" style="font-size:0.9em;"><%= textFormat(user.role)  %></td>
