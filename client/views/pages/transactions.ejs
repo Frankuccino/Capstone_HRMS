@@ -15,7 +15,12 @@
             <tbody>
                 <%for(let transaction of transactions) {%>
                 <tr>
-                    <td class="align-middle text-success" style="font-size:0.9em;"><%= transaction.username %></td>
+                    <td class="align-middle text-success" style="font-size:0.9em;"><%= textFormat(transaction.username) %> 
+                        <% if(transaction.role) { %> 
+                            (<%= textFormat(transaction.role) %>) 
+                        <% } %>
+                    </td>
+
                     <td class="align-middle" style="font-size:0.9em;"><%= transaction.transaction %></td>
                     <td class="align-middle" style="font-size:0.9em;"><%= new Date(transaction.createdAt).toLocaleString() %></td>
                 </tr>

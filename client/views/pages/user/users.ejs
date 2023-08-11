@@ -41,7 +41,8 @@
                     <td class="">
                         <div class="actions mx-0 d-flex align-middle">
                             <a href="/users/<%= user.id %>"><button class="btn btn-sm btn-light border border-success px-3 text-success" style="font-size:0.9em;" data-toggle="tooltip" data-placement="top" title="View"><i class="bi bi-eye"></i></button></a>
-                            <a href="/users/<%= user.id %>/edit"><button class="btn btn-sm btn-success" style="font-size:0.9em;" data-toggle="tooltip" data-placement="top" title="Edit"><i class="bi bi-pencil"></i></button></a>
+                            
+                            <a href="/users/<%= user.id %>/edit"><button class="btn btn-sm btn-success ms-1" style="font-size:0.9em;" data-toggle="tooltip" data-placement="top" title="Edit"><i class="bi bi-pencil"></i></button></a>
 
                             <% if(currentUser && currentUser.role === 'admin') { %>
                                 <form action="/users/<%= user.id %>/delete?_method=DELETE" method="POST">

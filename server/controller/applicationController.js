@@ -7,6 +7,8 @@ const Transaction = require('../../models/transaction')
 const offices = require('../../seeds/offices');
 const positions = require('../../seeds/position');
 const designations = require('../../seeds/designation');
+// Models
+const User = require('../../models/user'); 
 
 
 const activePage = '/applications'
@@ -41,22 +43,24 @@ exports.applicantForm = (req, res) => {
 
 exports.addApplicant = catchAsync(async(req, res) => {
     const applicant = req.body.applicant;
-
     const applicantPosition = applicant.position.slice(0, 3).toUpperCase()
     const applicantStartYear = applicant.dateStart.slice(2, 4)
-
     const employeeId = await generateNewEmployeeId(applicantPosition, applicantStartYear);
-
     req.body.applicant.employeeId = employeeId;
 
     const newApplicant = new Applicant(applicant);
     await newApplicant.save();
-    const addTransaction = {
-        transaction: `${newApplicant.firstName} ${newApplicant.lastName} is added to the Applicant database.`
-    }
 
-    const transaction = new Transaction(addTransaction);
+    const userId = req.user.id;
+    const user = await User.findById(userId);
+    const addTransaction = {
+        username: user.username,
+        role: user.role,
+        transaction: `${applicant.firstName} ${applicant.lastName} is added to the Applicant Database.`
+    }
+    const transaction =  new Transaction(addTransaction);
     await transaction.save();
+
     res.redirect('/applications');
 })
 
@@ -81,21 +85,40 @@ exports.updateApplicant = catchAsync(async(req, res) => {
     const applicant = req.body.applicant;
     const applicantPosition = applicant.position.slice(0, 3).toUpperCase();
     const applicantStartyear = applicant.dateStart.slice(2, 4);
-
     const employeeId = `${applicantPosition}${applicantStartyear}${last4Digits}`;
 
     req.body.applicant.employeeId = employeeId;
 
     const updateEmployeeId = await Applicant.findByIdAndUpdate(id, {$set: {employeeId: employeeId}});
-    
     const applicantUpdate = await Applicant.findByIdAndUpdate(id, {...req.body.applicant});
+
+    const userId = req.user.id;
+    const user = await User.findById(userId);
+    const addTransaction = {
+        username: user.username,
+        role: user.role,
+        transaction: `${applicant.firstName} ${applicant.lastName}'s applicant profile has been updated.`
+    }
+    const transaction =  new Transaction(addTransaction);
+    await transaction.save();
+
     req.flash('success', 'You updated the applicant information.');
     res.redirect(`/applications/${id}`);
 })
 
 exports.rejectApplicant = catchAsync(async (req, res) => {
     const {id} = req.params;
-    const employee = await Applicant.findByIdAndUpdate(id, {$set: {status: 'Rejected'}})
+    const applicant = await Applicant.findByIdAndUpdate(id, {$set: {status: 'Rejected'}});
+
+    const userId = req.user.id;
+    const user = await User.findById(userId);
+    const addTransaction = {
+        username: user.username,
+        role: user.role,
+        transaction: `${applicant.firstName} ${applicant.lastName}'s application has been rejected.`
+    }
+    const transaction =  new Transaction(addTransaction);
+    await transaction.save();
     req.flash('error', 'You rejected An applicant.');
     res.redirect(`/applications/${id}`);
 })
