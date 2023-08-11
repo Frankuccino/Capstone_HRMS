@@ -99,8 +99,9 @@ module.exports.isAccessible = async (req, res, next) => {
   }
 
   module.exports.isAccessibleByCurrent = async (req, res, next) => {
+    const {id} = req.params
     const currentUserAccess = req.user;
-    const accessibleBy = currentUserAccess.role === 'admin' || currentUserAccess;
+    const accessibleBy = currentUserAccess.id === id;
     if(!accessibleBy) {
       req.flash('error', 'Admin actions only!');
       res.redirect(`/`)

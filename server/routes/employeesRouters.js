@@ -3,7 +3,7 @@ const router = express.Router();
 const multer = require('multer');
 const storage = multer.memoryStorage(); // Store the uploaded file in memory as a Buffer
 const upload = multer({ storage: storage });
-// Middlewares
+
 const {isLoggedIn, isAccessible, employeeValidate, isAccessibleByAdminOnly} = require('../../middlewares');
 // Controllers
 const { viewAllEmployees, employeesForm, addEmployee, viewEmployee, viewLeaveHistory, updateEmployeeForm, updateEmployee, deleteEmployee, deactivateEmployee, activateEmployee, uploadImage} = require("../controller/employeeController");

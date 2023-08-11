@@ -38,10 +38,10 @@
     </div>  
 </div>
 
-<section class="d-flex mx-3" style="max-height:80vh;">
+<section class="d-flex mx-3" style="max-height:75vh;">
     <div class="col-12 overflow-auto">
         <table class="table table-striped border rounded-3" id="employeeTable">
-            <thead>
+            <thead style="position: sticky; top: 0; background-color: white; z-index: 1;">
                 <tr>
                     <th class="text-success col text-center">Employee ID</th>
                     <th class="text-success col text-center">First Name</th>
@@ -53,13 +53,14 @@
                 </tr>
             </thead>
             <tbody>
+                <% for(let i = 0; i < 20; i++) { %>
                 <% for (let applicant of applicants) { %>
-                <tr class="applicant-row">
+                <tr class="applicant-row" style="font-size: 0.9em;">
                     <td class="align-middle text-center"><%= applicant.employeeId %></td>
-                    <td class="align-middle text-center applicant-firstName" style="font-size:0.9em;"><%= applicant.firstName %></td>
-                    <td class="align-middle text-center applicant-lastName" style="font-size:0.9em;"><%= applicant.lastName %></td>
-                    <td class="align-middle text-center applicant-office" style="font-size:0.8em;"><%= applicant.office %></td>
-                    <td class="align-middle text-center" style="font-size:0.9em;"><%= new Date(applicant.createdAt).toLocaleString() %></td>
+                    <td class="align-middle text-center applicant-firstName" ><%= applicant.firstName %></td>
+                    <td class="align-middle text-center applicant-lastName" ><%= applicant.lastName %></td>
+                    <td class="align-middle text-center applicant-office"><%= applicant.office %></td>
+                    <td class="align-middle text-center" ><%= new Date(applicant.createdAt).toLocaleString() %></td>
                     <td class="align-middle text-center applicant-status" style="font-size:0.9em;"><%= applicant.status %></td>
                     <td class="no-print">
                         <div class="d-flex mx-0">
@@ -76,6 +77,7 @@
                         </div>
                     </td>
                 </tr>
+                <% } %>
                 <% } %>
             </tbody>
         </table>
