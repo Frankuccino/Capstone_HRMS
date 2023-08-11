@@ -12,7 +12,7 @@ exports.viewDashboard = async (req, res) => {
     const jobOrderCount = await Employee.countDocuments({position: 'Job Order'})
     const casualCount = await Employee.countDocuments({position: 'Casual'})
     const regularCount = await Employee.countDocuments({position: 'Regular'})
-    const applicantCount = await Applicant.countDocuments({})
+    const applicantCount = await Applicant.countDocuments({status: 'Pending'})
 
    const officeMayor = await Employee.countDocuments({office: 'Office of the Mayor'});
    const officeCivil = await Employee.countDocuments({office: 'Office of the Civil Security'});
