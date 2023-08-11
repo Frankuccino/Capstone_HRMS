@@ -130,3 +130,33 @@ module.exports.uploadImage = async(req, res) => {
       res.redirect(`/users/${id}`)
   }
 }
+
+module.exports.reset = async (req, res) => {
+  const {id} = req.params;
+  console.log(id);
+    res.render('pages/user/reset', {activePage, id});
+}
+
+
+module.exports.resetSubmit = async (req, res) => {
+    const user = await User.findById(req.user._id);
+
+    await user.setPassword(req.body.newPassword);
+    await user.save();
+
+    req.flash('success', 'Password changed successfully.');
+    res.redirect('/')
+}
+
+module.exports.forgotPassword = async(req, res) => {
+  const currentUser = req.user;
+  const defaultPass = 'default';
+
+  const user = await User.findById(req.user._id);
+
+  await user.setPassword(defaultPass);
+  await user.save();
+
+  req.flash('success', 'You succesfully reset your password!');
+  res.redirect(`/users/${req.user._id}`)
+}

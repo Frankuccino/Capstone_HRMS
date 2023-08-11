@@ -1,0 +1,18 @@
+<% layout('/layouts/boilerplate') %>
+
+<div>
+    <h3 class="my-3 page-header mt-1 ms-3">Reset Password</h3>
+</div>
+<div class="align-items-center card col-5 mt-5">
+    <form action="/users/<%= id %>/reset" method="POST">  
+        <div class="card-body">
+
+            <label for="newPassword" class="form-label">New Password:</label>
+
+            <input type="password" id="newPassword" name="newPassword" class="form-control mb-2" required>
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="rounded btn btn-success">Change Password</button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -52,6 +52,22 @@
                     <div class="card-text my-2">
                         <span class="ms-3"><%= textFormat(user.role) %></span>
                     </div>
+
+                    <% if(currentUser.id === id) { %>
+                    <div class="card-text my-2" style="font-size: 0.9em;">
+                        <a href="/users/<%= id %>/reset" class="text-decoration-none btn btn-success">Reset Password</a>
+                    </div>
+                    <% } %>
+                    
+                    <% if(currentUser.role === 'admin') { %>
+                    <div class="card-text my-2" style="font-size: 0.9em;">
+                        <form action="/forgot-password" method="POST">
+                            <button class="btn btn-danger">
+                                Forgot Password
+                            </button>
+                        </form>
+                        <% } %>
+                    </div>
                 </div>
             </div>
         </div>

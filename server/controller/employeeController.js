@@ -18,6 +18,14 @@ mongoose.connect('mongodb://127.0.0.1:27017/hrms')
     console.log(`Error: ${err}`);
 })
 
+// const connection = 'mongodb+srv://frankabad189:ZKIv5bXY5S26gx4F@hrms.l4kzcva.mongodb.net/?retryWrites=true&w=majority';
+// mongoose.connect(connection)
+// .then(()=>{
+//     console.log('Connection Open.');
+// })
+// .catch((err)=>{
+//     console.log(`Error: ${err}`);
+// })
 
 const activePage = '/employees'
 

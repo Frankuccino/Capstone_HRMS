@@ -8,10 +8,10 @@ const upload = multer({ storage: storage });
 const {isLoggedIn, storeReturnTo, isAccessibleByAdminOnly, isAccessibleByCurrent, userValidate} = require('../../middlewares');
 // Controllers
 const {registrationForm, registerUser, viewLogin, userLogin, logout, 
-    viewAllUsers, userForm, addUser, viewUser, editUserForm, editUser, deleteUser, uploadImage} = require('../controller/usersController');
+    viewAllUsers, userForm, addUser, viewUser, editUserForm, editUser, deleteUser, uploadImage, reset, resetSubmit, forgotPassword} = require('../controller/usersController');
 
-router.get('/register', isLoggedIn, isAccessibleByAdminOnly, registrationForm);
-router.post('/register', isLoggedIn, isAccessibleByAdminOnly, registerUser);
+// router.get('/register', registrationForm);
+// router.post('/register', registerUser);
 router.get('/login', viewLogin);
 router.post('/login', storeReturnTo, passport.authenticate('local', {failureFlash: true, failureRedirect: '/login'}), userLogin);
 router.post('/logout', logout);
@@ -24,5 +24,10 @@ router.get('/users/:id/edit', isLoggedIn, isAccessibleByAdminOnly, editUserForm)
 router.patch('/users/:id', isLoggedIn, isAccessibleByAdminOnly, userValidate, editUser);
 router.delete('/users/:id/delete', isLoggedIn, isAccessibleByAdminOnly, deleteUser);
 router.post('/users/:id/uploadimage', upload.single('file'), uploadImage);
+
+router.get('/users/:id/reset', isLoggedIn, isAccessibleByCurrent, reset);
+router.post('/users/:id/reset',isAccessibleByCurrent, resetSubmit);
+
+router.post('/forgot-password', forgotPassword)
 
 module.exports = router;
