@@ -17,6 +17,8 @@ mongoose.connect('mongodb://127.0.0.1:27017/hrms')
 .catch((err)=>{
     console.log(`Error: ${err}`);
 })
+
+
 const activePage = '/employees'
 
 // Function to set the number value for the employeeID
@@ -143,6 +145,8 @@ exports.deactivateEmployee = async (req, res) => {
     const lastName = user.lastName.charAt(0).toUpperCase() + user.lastName.slice(1).toLowerCase()
     
     const addTransaction = {
+        username: user.username,
+        role: user.role,
         transaction: `${employee.firstName} is deactivated by ${firstName} ${lastName}`
     }
     const transaction =  new Transaction(addTransaction);
@@ -163,6 +167,8 @@ exports.activateEmployee = async (req, res) => {
     const lastName = user.lastName.charAt(0).toUpperCase() + user.lastName.slice(1).toLowerCase()
 
     const addTransaction = {
+        username: user.username,
+        role: user.role,
         transaction: `${employee.firstName} is activated by ${firstName} ${lastName}`
     }
     const transaction =  new Transaction(addTransaction);

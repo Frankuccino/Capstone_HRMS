@@ -36,19 +36,15 @@
         
     </div>
     <div class="position-absolute bottom-0 end-0 mb-2 me-2">
-
         <div class="d-flex flex-row gap-1">
             <div>
-                <a class="btn btn-light border border-success text-success ms-2" href="/leave-management/<%= leaver.id %>/update-leave-form">Edit</a>  
-        
+                <a class="btn btn-light border border-success text-success ms-2" href="/leave-management/<%= leaver.id %>/update-leave-form" data-bs-toggle="tooltip" data-bs-html="true" data-placement="top" title="Edit"><i class="bi bi-pencil"></i></a>  
             </div>
             <div>
                 <form action="/leave-management/<%= leaver.id %>?_method=DELETE" method="POST">
-                    <button class="btn btn-danger">Delete</button>
+                    <button class="btn btn-danger" data-bs-toggle="tooltip" data-bs-html="true" data-placement="top" title="Delete"><i class="bi bi-trash"></i></button>
                 </form>
-        
             </div>
-        
         </div>
     </div>
 </div>

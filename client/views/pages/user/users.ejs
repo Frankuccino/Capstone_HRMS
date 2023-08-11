@@ -3,25 +3,23 @@
 <div class="my-3">
     <h3 class="page-header mt-4 ms-3">Users</h3>
 </div>
+<div class="m-3">
+    <a href="/users/form"><button class="btn btn-success"><i class="bi bi-person-add pe-3"></i>Register User</button></a>
+</div>
 
-<div class="d-flex col-10 justify-content-between mx-3">
-        <div class="">
-            <a href="/users/form"><button class="btn btn-success"><i class="bi bi-person-add pe-3"></i>Register User</button></a>
-        </div>
-        <div class="d-flex justify-content-end mb-2">
-            <select name="role" id="roleFilter" class="form-control w-25" required>
+<div class="d-flex col-10 justify-content-between mx-3 my-2">
+            <select name="role" id="roleFilter" class="rounded px-2" style="width: 150px" required>
                 <option value="" selected>All</option>
                 <% for (let role of roles) { %>
                     <option value="<%= role %>"><%= role[0].toUpperCase() + role.slice(1) %></option>
                 <% } %>
-            
-            <input type="text" class="form-control me-2"  id="searchInput">
-        </div>  
+            </select>
+            <input type="text" class="form-control me-4 w-25" id="searchInput" placeholder="Search Name..."> 
 </div>
 
 <section class="d-flex mx-3" style="max-height:80vh;">
     <div class="col-10 overflow-auto">
-        <table class="table table-striped border rounded-3">
+        <table class="table table-striped border rounded-3 shadow">
             <thead>
                 <tr>
                     <th class="text-success" style="width:15%;">Username</th>
