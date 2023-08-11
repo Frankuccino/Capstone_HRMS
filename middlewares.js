@@ -1,4 +1,5 @@
-const {leaveSchemaValidation, employeeSchemaValidation} = require('./schemas');
+const {leaveSchemaValidation, employeeSchemaValidation, userSchemaValidation} = require('./schemas');
+const ExpressError = require('./utils/ExpressError');
 
 module.exports.isLoggedIn = (req, res, next) =>{
     req.session.returnTo = req.originalUrl;
@@ -26,6 +27,20 @@ module.exports.leaveValidate = (req, res, next) => {
     }else{
       next();
     }
+}
+
+// User Validation
+module.exports.userValidate = (req, res, next) => {
+  const {error} = userSchemaValidation.validate(req.body)
+  console.log(req.body)
+  if(error){
+    const msg = error.details.map(el=> el.message).join(',');
+    // throw new ExpressError(msg, 400);
+    req.flash('error', `${msg}`);
+    res.redirect('users/form')
+  }else{
+    next();
+  }
 }
 
 // Employee Form Validation
@@ -75,10 +90,24 @@ module.exports.isAccessible = async (req, res, next) => {
   module.exports.isAccessibleByAdminOnly = async (req, res, next) => {
     const currentUserAccess = req.user;
     const accessibleBy = currentUserAccess.role === 'admin';
-    if(! accessibleBy) {
+    if(!accessibleBy) {
       req.flash('error', 'Admin actions only!');
       res.redirect(`/`)
     } else {
       next();
     }
   }
+
+module.exports.textFormatMiddleware = (req, res, next) => {
+  const capitalizeFirstLetter = str => {
+    if (typeof str !== 'string') {
+      return '';
+    }
+    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+  };
+
+  // Add the function to the response locals to make it available in templates
+  res.locals.textFormat = capitalizeFirstLetter;
+  next();
+};
+

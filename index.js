@@ -11,6 +11,7 @@ const localStrategy = require('passport-local');
 const User = require('./models/user');
 
 // Router Imports
+const applicationRouter = require('./server/routes/applicationRouters');
 const dashboardRouter = require('./server/routes/dashboardRouter');
 const employeesRouters = require('./server/routes/employeesRouters');
 const transactionRouters = require('./server/routes/transactionRouters');
@@ -53,15 +54,18 @@ passport.use(new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+const { textFormatMiddleware } = require('./middlewares');
 // Connect Flash
 app.use(flash());
 app.use((req, res, next) => {
+   
     res.locals.currentUser = req.user;
     res.locals.success = req.flash('success');
     res.locals.error = req.flash('error');
     next();
 })
 
+app.use(textFormatMiddleware);
 
 // Execute Router
 app.use('', dashboardRouter)
@@ -69,6 +73,9 @@ app.use('', employeesRouters)
 app.use('', leaveRouters)
 app.use('', transactionRouters)
 app.use('', usersRouters)
+app.use('', applicationRouter)
+
+
 
 app.use('*',(req, res, next)=>{
     next(new ExpressError('Sorry, the page not found!', 404));

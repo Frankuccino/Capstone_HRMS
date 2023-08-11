@@ -9,9 +9,24 @@
     <div class="card mt-4" style="height: 25em;">
         <h4 class="mt-3 ms-3 card-head">Reports</h4>
     </div>
-    <div class="card mt-4" style="height: 10em">
-        <h4 class="mt-3 ms-3 card-head">Departments</h4>
-        <canvas id="employeeChart" width="100%" height="17%"></canvas>
+    <div class="card mt-4 d-flex" style="height: 10em">
+        <h4 class="mt-3 ms-3 card-head">Position Overview</h4>
+
+        <div class="d-flex">
+            
+            <canvas id="employeeChart">
+                
+            </canvas>
+        </div>
+        <div class="ps-3 pt-3" style="font-size: small; display: none;">
+            <p id="employeeCount"><%= employeeCount %></p>
+            <p id="jobCount"><%= jobOrderCount %></p>
+        </div>
+        <div class="ps-3 pt-3" style="font-size: small; display: none;">
+            <p id="casualeCount"><%= casualCount %></p>
+            <p id="regularCount"><%= regularCount %></p>
+        </div>
+       
     </div>
 </div>
 <div class="col">
@@ -19,7 +34,7 @@
         <div class="col-5 card ms-3 mt-4" style="height: 10em;">
             <h4 class="mt-3 ms-1 card-head">Total Applicants</h4>
             <div class="mt-3 ps-4">
-                <h2><%= employeeCount %></h2>
+                <h2><%= applicantCount %></h2>
             </div>
             <a href="/applications" class="d-flex justify-content-end gray-text text-decoration-none align-items-center" style="font-size: 1.1em; font-weight: 600; ">View All<i class="bi bi-arrow-right-short ms-2" style="font-size: 1.5em;"></i></a>
         </div>
@@ -50,4 +65,53 @@
 </div>
 </div>
 
+<script>
+    // Get the canvas element
+    const employeeChartCanvas = document.getElementById('employeeChart');
+    const employeeCount = document.getElementById('employeeCount').textContent;
+    const jobOrderCount = document.getElementById('jobOrderCount').textContent;
+    const casualCount = document.getElementById('casualCount').textContent;
+    const regularCount = document.getElementById('regularCount').textContent;
 
+  
+    // Data from your server
+    const departmentLabels = ['Employees ','Job Order', 'Casual', 'Regular'];
+    const departmentCounts = [employeeCount, jobOrderCount, casualCount, regularCount];
+  
+    // Create the bar chart
+    const employeeChart = new Chart(employeeChartCanvas, {
+      type: 'bar',
+      data: {
+        labels: departmentLabels,
+        datasets: [{
+          label: 'Employee Positions',
+          data: departmentCounts,
+          backgroundColor: [
+        'rgba(133, 196, 170, 0.2)',
+        'rgba(196, 133, 133, 0.2)',
+        'rgba(168, 133, 196, 0.2)',
+        'rgba(196, 175, 133, 0.2)'
+        ],
+        borderColor: [
+        'rgba(133, 196, 170, 1)',
+        'rgba(196, 133, 133, 1)',
+        'rgba(168, 133, 196, 1)',
+        'rgba(196, 175, 133, 1)'
+        ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+
+        scales: {
+        responsive: true,
+            maintainAspectRatio: true,
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
+
+  

@@ -27,6 +27,17 @@ body {
   color: transparent;
 }
 
+.picture-upload {
+  opacity: 0;
+}
+
+.picture-upload:hover {
+  background-color: rgb(108, 117, 125, 0.5);
+  transition: 0.3s;
+  opacity: 1;
+}
+
+
 .sidebar {
   padding: 20px;
   background: #E3F6E8;
