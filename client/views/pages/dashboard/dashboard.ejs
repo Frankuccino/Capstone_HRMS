@@ -23,11 +23,33 @@
             <p id="casualCount"><%= casualCount %></p>
             <p id="regularCount"><%= regularCount %></p>
 
+            <p id="officeMayor"><%= officeMayor %></p>
+            <p id="officeCivil"><%= officeCivil %></p>
+            <p id="officeSangguniang"><%= officeSangguniang %></p>
+            <p id="officeSB"><%= officeSB %></p>
+            <p id="officeHuman"><%= officeHuman %></p>
+            <p id="officeMPDC"><%= officeMPDC %></p>
+            <p id="officeLCR"><%= officeLCR %></p>
+            <p id="officeGen"><%= officeGen %></p>
+            <p id="officeBudget"><%= officeBudget %></p>
+            <p id="officeAccountant"><%= officeAccountant %></p>
+            <p id="officeTreasurer"><%= officeTreasurer %></p>
+            <p id="officeAssessor"><%= officeAssessor %></p>
+            <p id="officeAuditing"><%= officeAuditing %></p>
+            <p id="officeLegal"><%= officeLegal %></p>
+            <p id="officeMPOC"><%= officeMPOC %></p>
+            <p id="officeHigh"><%= officeHigh %></p>
+            <p id="officeManpower"><%= officeManpower %></p>
+            <p id="officeHealth"><%= officeHealth %></p>
+            <p id="officeDSWD"><%= officeDSWD %></p>
+            <p id="officeAgriculture"><%= officeAgriculture %></p>
+            <p id="officeEngineering"><%= officeEngineering %></p>
+            <p id="officeOperation"><%= officeOperation %></p>
+            <p id="officeLGSEF"><%= officeLGSEF %></p>
+            <p id="officeSpecial"><%= officeSpecial %></p>
+            <p id="officeBugetary"><%= officeBugetary %></p>
+
             
-
-            officeMayor, officeCivil, officeSangguniang, officeSB, officeHuman, officeMPDC, officeLCR, officeGen, officeBudget, officeAccountant, officeTreasurer, officeAssessor, officeAuditing, officeAuditing, officeLegal, officeMPOC, officeHigh, officeManpower, officeHealth, officeDSWD, officeAgriculture, officeEngineering, officeOperation, officeLGSEF, officeSpecial, officeBugetary
-
-
 
 
         </div>
@@ -71,29 +93,113 @@
 </div>
   <script>
     // Get the values from the paragraphs
+
     var employeeCount = parseInt(document.getElementById('employeeCount').textContent);
     var jobCount = parseInt(document.getElementById('jobCount').textContent);
     var casualCount = parseInt(document.getElementById('casualCount').textContent);
     var regularCount = parseInt(document.getElementById('regularCount').textContent);
     
+    
+    var officeMayor = parseInt(document.getElementById('officeMayor').textContent);
+    var officeCivil = parseInt(document.getElementById('officeCivil').textContent);
+    var officeSangguniang = parseInt(document.getElementById('officeSangguniang').textContent);
+    var officeSB = parseInt(document.getElementById('officeSB').textContent);
+    var officeHuman = parseInt(document.getElementById('officeHuman').textContent);
+    var officeMPDC = parseInt(document.getElementById('officeMPDC').textContent);
+    var officeLCR = parseInt(document.getElementById('officeLCR').textContent);
+    var officeBudget = parseInt(document.getElementById('officeBudget').textContent);
+    var officeAccountant = parseInt(document.getElementById('officeAccountant').textContent);
+    var officeTreasurer = parseInt(document.getElementById('officeTreasurer').textContent);
+    var officeAssessor = parseInt(document.getElementById('officeAssessor').textContent);
+    var officeAuditing = parseInt(document.getElementById('officeAuditing').textContent);
+    var officeLegal = parseInt(document.getElementById('officeLegal').textContent);
+    var officeMPOC = parseInt(document.getElementById('officeMPOC').textContent);
+    var officeHigh = parseInt(document.getElementById('officeHigh').textContent);
+    var officeManpower = parseInt(document.getElementById('officeManpower').textContent);
+    var officeHealth = parseInt(document.getElementById('officeHealth').textContent);
+    var officeDSWD = parseInt(document.getElementById('officeDSWD').textContent);
+    var officeAgriculture = parseInt(document.getElementById('officeAgriculture').textContent);
+    var officeEngineering = parseInt(document.getElementById('officeEngineering').textContent);
+    var officeOperation = parseInt(document.getElementById('officeOperation').textContent);
+    var officeLGSEF = parseInt(document.getElementById('officeLGSEF').textContent);
+    var officeSpecial = parseInt(document.getElementById('officeSpecial').textContent);
+    var officeBugetary = parseInt(document.getElementById('officeBugetary').textContent);
+
+    
+
+
     // Create the data object
     var data = {
       labels: ['Employee', 'Job Orders', 'Casuals', 'Regulars'],
       datasets: [{
         label: 'Sample Data',
-        data: [employeeCount, jobCount, casualCount, regularCount],
+        data: [  officeMayor, officeCivil, officeSangguniang, officeSB, officeHuman, officeMPDC, 
+            officeLCR, officeGen, officeBudget, officeAccountant, officeTreasurer, officeAssessor, 
+            officeAuditing, officeLegal, officeMPOC, officeHigh, officeManpower, 
+            officeHealth, officeDSWD, officeAgriculture, officeEngineering, officeOperation, 
+            officeLGSEF, officeSpecial, officeBugetary],
         // data: ['12', '35', '512', '32'],
         backgroundColor: [
-          'rgba(133, 196, 170, 0.2)',
+        'rgba(133, 196, 170, 0.2)',
           'rgba(196, 133, 133, 0.2)',
           'rgba(168, 133, 196, 0.2)',
-          'rgba(196, 175, 133, 0.2)'
+          'rgba(196, 175, 133, 0.2)',
+          'rgba(196, 175, 133,0.2)',
+            'rgba(200, 77, 71,0.2)',
+            'rgba(33, 89, 71,0.2)',
+            'rgba(33, 210, 71,0.2)',
+            'rgba(33, 152, 174,0.2)',
+            'rgba(145, 76, 174,0.2)',
+            'rgba(255, 208, 145,0.2)',
+            'rgba(58, 0, 145,0.2)',
+            'rgba(56, 109, 0,0.2)',
+            'rgba(56, 249, 0,0.2)',
+            'rgba(0, 0, 255,0.2)',
+            'rgba(0, 255, 0,0.2)',
+            'rgba(255, 0, 0,0.2)',
+            'rgba(106, 90, 205,0.2)',
+            'rgba(60, 179, 113,0.2)',
+            'rgba(255, 116, 51,0.2)',
+            'rgba(81, 116, 51,0.2)',
+            'rgba(224, 116, 51,0.2)',
+            'rgba(0, 0, 0,0.2)',
+            'rgba(193, 217, 109,0.2)',
+            'rgba(212, 145, 109,0.2)',
+            'rgba(154, 145, 109,0.2)',
+            'rgba(154, 204, 109,0.2)',
+            'rgba(74, 143, 109,0.2)',
+            'rgba(148, 255, 177,0.2)'
         ],
         borderColor: [
-          'rgba(133, 196, 170, 1)',
-          'rgba(196, 133, 133, 1)',
-          'rgba(168, 133, 196, 1)',
-          'rgba(196, 175, 133, 1)'
+        'rgba(133, 196, 170, 0.2)',
+          'rgba(196, 133, 133, 0.2)',
+          'rgba(168, 133, 196, 0.2)',
+          'rgba(196, 175, 133, 0.2)',
+          'rgba(196, 175, 133,0.2)',
+            'rgba(200, 77, 71,0.2)',
+            'rgba(33, 89, 71,0.2)',
+            'rgba(33, 210, 71,0.2)',
+            'rgba(33, 152, 174,0.2)',
+            'rgba(145, 76, 174,0.2)',
+            'rgba(255, 208, 145,0.2)',
+            'rgba(58, 0, 145,0.2)',
+            'rgba(56, 109, 0,0.2)',
+            'rgba(56, 249, 0,0.2)',
+            'rgba(0, 0, 255,0.2)',
+            'rgba(0, 255, 0,0.2)',
+            'rgba(255, 0, 0,0.2)',
+            'rgba(106, 90, 205,0.2)',
+            'rgba(60, 179, 113,0.2)',
+            'rgba(255, 116, 51,0.2)',
+            'rgba(81, 116, 51,0.2)',
+            'rgba(224, 116, 51,0.2)',
+            'rgba(0, 0, 0,0.2)',
+            'rgba(193, 217, 109,0.2)',
+            'rgba(212, 145, 109,0.2)',
+            'rgba(154, 145, 109,0.2)',
+            'rgba(154, 204, 109,0.2)',
+            'rgba(74, 143, 109,0.2)',
+            'rgba(148, 255, 177,0.2)'
         ],
         borderWidth: 1
       }]
