@@ -40,8 +40,9 @@ exports.viewDashboard = async (req, res) => {
    const officeSpecial = await Employee.countDocuments({office: 'Special Purpose Appropriations'});
    const officeBugetary = await Employee.countDocuments({office: 'Bugetary Reserve (Calamity Fund)'});
  
+   const applicants = await Applicant.find({status: 'Pending'});
 
-    res.render('pages/dashboard/dashboard', {activePage, employeeCount, jobOrderCount, casualCount, regularCount, applicantCount, 
+    res.render('pages/dashboard/dashboard', {applicants, activePage, employeeCount, jobOrderCount, casualCount, regularCount,       applicantCount, 
         officeMayor, officeCivil, officeSangguniang, officeSB, officeHuman, officeMPDC, officeLCR, officeGen, officeBudget, officeAccountant, officeTreasurer, officeAssessor, officeAuditing, officeLegal, officeMPOC, officeHigh, officeManpower, officeHealth, officeDSWD, officeAgriculture, officeEngineering, officeOperation, officeLGSEF, officeSpecial, officeBugetary
     
     });
