@@ -96,5 +96,15 @@
     </div>
 </div>
 <div class="d-flex">
-    <a href="/users"><button class="btn btn-danger px-4 mx-3 my-4">Back to Users</button></a>
+    <% if(currentUser.role === 'admin') { %>
+        <a href="/users"><button class="btn btn-danger px-4 mx-3 my-4">Back to Users</button></a>
+    <% } %>
+    
+    <% if(currentUser.id === id) { %>
+    <a href="/"><button class="btn btn-danger px-4 mx-3 my-4"
+        <% if(currentUser.role === 'admin') { %>
+         style="display: none;"
+         <% } %>
+         >Back to Users</button></a>
+    <% } %>
 </div>

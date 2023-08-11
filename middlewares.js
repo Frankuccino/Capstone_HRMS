@@ -103,7 +103,7 @@ module.exports.isAccessible = async (req, res, next) => {
     const currentUserAccess = req.user;
     const accessibleBy = currentUserAccess.id === id || currentUserAccess.role === 'admin';
     if(!accessibleBy) {
-      req.flash('error', 'Admin actions only!');
+      req.flash('error', 'You are not authorized to go there!');
       res.redirect(`/`)
     } else {
       next();

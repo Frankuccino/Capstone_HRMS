@@ -33,6 +33,10 @@
                          style="height: 50px; width: 50px; object-fit: cover;"
                          onerror="this.style.display='none';">
                 <% } %>
+                <div class="picture-upload rounded-circle shadow position-absolute d-flex align-items-center justify-content-center" style="height: 50px; width: 50px;">
+                    <button class="text-light border border-light rounded-3 border-0 bg-transparent" data-toggle="tooltip" data-placement="top" title="View Profile" style="font-size: 1.1em"><a href="/users/<%= currentUser.id %>"><i class="bi bi-eye text-light bg-transparent"></i></a>
+                    </button>
+                </div>
             </div>
             
             <div class="align-items-center mx-3">

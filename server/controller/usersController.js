@@ -93,7 +93,8 @@ exports.addUser = catchAsync(async (req,res)=>{
 exports.viewUser = async(req,res)=>{
   const id = req.params.id;
   const user = await User.findById(id);
-  res.status(200).render('pages/user/user-info',{user, activePage});
+  const referrer = req.headers.referer || '/users';
+  res.status(200).render('pages/user/user-info',{user, activePage, id, referrer});
 }
 
 exports.editUserForm = async (req,res)=>{
