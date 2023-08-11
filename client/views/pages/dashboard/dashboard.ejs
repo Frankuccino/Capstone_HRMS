@@ -123,79 +123,92 @@
     var officeSpecial = parseInt(document.getElementById('officeSpecial').textContent);
     var officeBugetary = parseInt(document.getElementById('officeBugetary').textContent);
 
-
     // Create the data object
     var data = {
-      labels: ['officeMayor', 'Job Orders', 'Casuals', 'Regulars'],
+      labels: ['Office of the Civil Security',
+     'Office of the Sangguniang Bayan',
+     'Office of the SB Secretary',
+     "Human Resource Dev't Office",
+     'Office of the MPDC',
+     'Office of the LCR',
+     'Office of Gen. Services',
+     'Office of the Budget',
+     'Office of the Municipal Accountant',
+     'Office of the Municipal Treasurer',
+     'Office of the Municipal Assessor',
+     'Municipal Auditing Office',
+     'Legal Office',
+     'Office of the MPOC',
+     'Municipal High School',
+     'Office of the Manpower Development',
+     'Municipal Health Office',
+     'Office of the DSWD',
+     'Office of the Agriculture',
+     "Municipal Engineering Office",
+     'Operation Of Market',
+     "LGSEF - Local Gov't Service Equalization Fund",
+     'Special Purpose Appropriations',
+     'Bugetary Reserve (Calamity Fund)',],
       datasets: [{
-        label: 'Sample Data',
+        label: 'Office Count',
         data: [  officeMayor, officeCivil, officeSangguniang, officeSB, officeHuman, officeMPDC, 
             officeLCR, officeGen, officeBudget, officeAccountant, officeTreasurer, officeAssessor, 
             officeAuditing, officeLegal, officeMPOC, officeHigh, officeManpower, 
             officeHealth, officeDSWD, officeAgriculture, officeEngineering, officeOperation, 
             officeLGSEF, officeSpecial, officeBugetary],
-        // data: ['12', '35', '512', '32'],
         backgroundColor: [
-        'rgba(133, 196, 170, 0.5)',
-          'rgba(196, 133, 133, 0.5)',
-          'rgba(168, 133, 196, 0.5)',
-          'rgba(196, 175, 133, 0.5)',
-          'rgba(196, 175, 133,0.5)',
-            'rgba(200, 77, 71,0.5)',
-            'rgba(33, 89, 71,0.5)',
-            'rgba(33, 210, 71,0.5)',
-            'rgba(33, 152, 174,0.5)',
-            'rgba(145, 76, 174,0.5)',
-            'rgba(255, 208, 145,0.5)',
-            'rgba(58, 0, 145,0.5)',
-            'rgba(56, 109, 0,0.5)',
-            'rgba(56, 249, 0,0.5)',
-            'rgba(0, 0, 255,0.5)',
-            'rgba(0, 255, 0,0.5)',
-            'rgba(255, 0, 0,0.5)',
-            'rgba(106, 90, 205,0.5)',
-            'rgba(60, 179, 113,0.5)',
-            'rgba(255, 116, 51,0.5)',
-            'rgba(81, 116, 51,0.5)',
-            'rgba(224, 116, 51,0.5)',
-            'rgba(0, 0, 0,0.5)',
-            'rgba(193, 217, 109,0.5)',
-            'rgba(212, 145, 109,0.5)',
-            'rgba(154, 145, 109,0.5)',
-            'rgba(154, 204, 109,0.5)',
-            'rgba(74, 143, 109,0.5)',
-            'rgba(148, 255, 177,0.5)'
+        'rgba(63, 116, 96, 0.7)',   // Greenish Blue
+        'rgba(87, 129, 123, 0.7)',   // Teal
+        'rgba(117, 105, 128, 0.7)',  // Purple
+        'rgba(160, 108, 86, 0.7)',   // Burnt Sienna
+        'rgba(111, 133, 109, 0.7)',  // Olive Green
+        'rgba(116, 115, 138, 0.7)',  // Slate Blue
+        'rgba(150, 153, 107, 0.7)',  // Olive Drab
+        'rgba(157, 130, 110, 0.7)',  // Tan
+        'rgba(138, 150, 109, 0.7)',  // Moss Green
+        'rgba(119, 130, 107, 0.7)',  // Forest Green
+        'rgba(183, 78, 77, 0.7)',    // Maroonish
+        'rgba(75, 97, 146, 0.7)',    // Blueish
+        'rgba(147, 143, 60, 0.7)',   // Olive
+        'rgba(60, 147, 123, 0.7)',   // Tealish Green
+        'rgba(92, 98, 124, 0.7)',    // Slate Gray
+        'rgba(160, 91, 52, 0.7)',    // Rust
+        'rgba(76, 89, 93, 0.7)',     // Dark Gray
+        'rgba(79, 110, 112, 0.7)',   // Bluish Gray
+        'rgba(122, 64, 46, 0.7)',    // Dark Reddish Brown
+        'rgba(46, 57, 80, 0.7)',     // Dark Blue
+        'rgba(125, 57, 124, 0.7)',   // Dark Purple
+        'rgba(46, 80, 62, 0.7)',     // Dark Green
+        'rgba(112, 62, 62, 0.7)',    // Dark Brown
+        'rgba(75, 98, 75, 0.7)',     // Greenish Gray
+        'rgba(96, 55, 75, 0.7)'      // Dark Pink
         ],
         borderColor: [
-        'rgba(133, 196, 170, 0.5)',
-          'rgba(196, 133, 133, 0.5)',
-          'rgba(168, 133, 196, 0.5)',
-          'rgba(196, 175, 133, 0.5)',
-          'rgba(196, 175, 133,0.5)',
-            'rgba(200, 77, 71,0.5)',
-            'rgba(33, 89, 71,0.5)',
-            'rgba(33, 210, 71,0.5)',
-            'rgba(33, 152, 174,0.5)',
-            'rgba(145, 76, 174,0.5)',
-            'rgba(255, 208, 145,0.5)',
-            'rgba(58, 0, 145,0.5)',
-            'rgba(56, 109, 0,0.5)',
-            'rgba(56, 249, 0,0.5)',
-            'rgba(0, 0, 255,0.5)',
-            'rgba(0, 255, 0,0.5)',
-            'rgba(255, 0, 0,0.5)',
-            'rgba(106, 90, 205,0.5)',
-            'rgba(60, 179, 113,0.5)',
-            'rgba(255, 116, 51,0.5)',
-            'rgba(81, 116, 51,0.5)',
-            'rgba(224, 116, 51,0.5)',
-            'rgba(0, 0, 0,0.5)',
-            'rgba(193, 217, 109,0.5)',
-            'rgba(212, 145, 109,0.5)',
-            'rgba(154, 145, 109,0.5)',
-            'rgba(154, 204, 109,0.5)',
-            'rgba(74, 143, 109,0.5)',
-            'rgba(148, 255, 177,0.5)'
+        'rgba(63, 116, 96, 1)',    // Greenish Blue
+        'rgba(87, 129, 123, 1)',    // Teal
+        'rgba(117, 105, 128, 1)',   // Purple
+        'rgba(160, 108, 86, 1)',    // Burnt Sienna
+        'rgba(111, 133, 109, 1)',   // Olive Green
+        'rgba(116, 115, 138, 1)',   // Slate Blue
+        'rgba(150, 153, 107, 1)',   // Olive Drab
+        'rgba(157, 130, 110, 1)',   // Tan
+        'rgba(138, 150, 109, 1)',   // Moss Green
+        'rgba(119, 130, 107, 1)',   // Forest Green
+        'rgba(183, 78, 77, 1)',     // Maroonish
+        'rgba(75, 97, 146, 1)',     // Blueish
+        'rgba(147, 143, 60, 1)',    // Olive
+        'rgba(60, 147, 123, 1)',    // Tealish Green
+        'rgba(92, 98, 124, 1)',     // Slate Gray
+        'rgba(160, 91, 52, 1)',     // Rust
+        'rgba(76, 89, 93, 1)',      // Dark Gray
+        'rgba(79, 110, 112, 1)',    // Bluish Gray
+        'rgba(122, 64, 46, 1)',     // Dark Reddish Brown
+        'rgba(46, 57, 80, 1)',      // Dark Blue
+        'rgba(125, 57, 124, 1)',    // Dark Purple
+        'rgba(46, 80, 62, 1)',      // Dark Green
+        'rgba(112, 62, 62, 1)',     // Dark Brown
+        'rgba(75, 98, 75, 1)',      // Greenish Gray
+        'rgba(96, 55, 75, 1)'       // Dark Pink
         ],
         borderWidth: 1
       }]
@@ -206,14 +219,47 @@
   
     // Create the chart
     var myChart = new Chart(ctx, {
-      type: 'pie',
+      type: 'bar',
       data: data,
       options: {
-        plugins: {
-          legend: {
-            display: false
+          // Chart options
+          responsive: true,
+          maintainAspectRatio: true,
+          scales: {
+            x: {
+              display: false,
+              grid: {
+                display: true,
+              },
+            },
+            y: {
+              grid: {
+                display: false,
+              },
+              display: true, // Hide y-axis labels
+              ticks: {
+                display: true,
+                padding: 0,
+                font: {
+                  size: 10,
+                },
+              },
+            },
+          },
+          plugins: {
+            tooltip: {
+              enabled: true, 
+            },
+            legend: {
+              display: false, // Hide the legend
+            },
+          },
+            elements: {
+              point: {
+                radius: 0, // Set the point radius to 0 to hide the points
+                hoverRadius: 7 // Set the hover point radius to 0 to hide the points on hover
+             }
+           }
           }
-        }
-      }
     });
   </script>
