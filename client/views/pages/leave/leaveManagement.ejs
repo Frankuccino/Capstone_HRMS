@@ -5,8 +5,8 @@
     </div>
     <div class="d-flex col-12 justify-content-between mx-3">
         <div class="d-flex justify-content-end mb-2">
-            <select name="role" id="roleFilter" class="rounded ps-1" required>
-                <option value="" selected>All</option>
+            <select name="role" id="leaveFilter" class="rounded ps-1" required>
+                <option value="All" selected>All</option>
                 <% for (let type of leaveTypes) { %>
                     <option value="<%= type %>"><%= type %></option>
                 <% } %>
