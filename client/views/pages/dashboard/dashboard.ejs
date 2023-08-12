@@ -89,11 +89,13 @@
                 </thead>
                 <tbody>
                     <% for(let applicant of applicants) { %>
+                   
                     <tr>
-                        <th><%= applicant.firstName %> <%= applicant.lasttName %></th>
+                        <th><%= applicant.firstName %> <%= applicant.lastName %></th>
                         <th><%= applicant.office %></th>
                         <th><%= applicant.status %></th>
                     </tr>
+                  
                     <% } %>
                 </tbody>
             </table>

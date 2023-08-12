@@ -28,13 +28,13 @@
                     <th class="text-success col text-center">Name</th>
                     <th class="text-success col text-center">Leave Start</th>
                     <th class="text-success col text-center">Leave End</th>
-                    <th class="text-success col text-center">Type</th>         
+                    <th class="text-success col text-center leave-type">Type</th>         
                     <th class="text-success col text-center">Remarks</th>      
                     <th class="text-success col text-center no-print"></th>
                 </tr>
             </thead>
             <tbody>
-                <% for(let i = 0; i < 50; i++) { %>
+                
                 <%  for(let leave of leaves) { %>
                 <tr class="align-middle employee-row" style="font-size: 0.9em;">
                     <td class="align-middle text-center"><%= leave.employeeId %></td>
@@ -57,7 +57,7 @@
                     </td>
                 </tr>
                 <% } %>
-                <% } %>
+               
             </tbody>
         </table>
     </div>
