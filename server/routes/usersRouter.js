@@ -17,8 +17,8 @@ router.post('/login', storeReturnTo, passport.authenticate('local', {failureFlas
 router.post('/logout', logout);
 
 router.get('/users', isLoggedIn, isAccessibleByAdminOnly, viewAllUsers);
-router.get('/users/form', userForm);
-router.post('/users', userValidate, addUser);  
+router.get('/users/form', isLoggedIn, isAccessibleByAdminOnly, userForm);
+router.post('/users', isLoggedIn, isAccessibleByAdminOnly, userValidate, addUser);  
 router.get('/users/:id', isLoggedIn, isAccessibleByCurrent, viewUser);   
 router.get('/users/:id/edit', isLoggedIn, isAccessibleByAdminOnly, editUserForm);
 router.patch('/users/:id', isLoggedIn, isAccessibleByAdminOnly, userValidate, editUser);
