@@ -23,15 +23,7 @@
             <label for="username" class="form-label">Username:<span><em class="text-danger">*</em></span></label>
             <input type="text" name="username" id="userName" class="form-control" value="<%= user.username %>" required>
         </div>
-        <div class="mt-2 d-none">
-            <label for="password" class="form-label">Password:<span><em class="text-danger">*</em></span></label>
-            <input type="password" name="password" id="password" class="form-control" value="<%= user.password %>"  required>
-        </div>
-        <div class="mt-2 d-none">
-            <label for="passwordConfirm" class="form-label">Confirm Password:<span><em class="text-danger">*</em></span></label>
-            <input type="password" name="" id="passwordConfirm" class="form-control" value="<%= user.password %>"  required>
-                <em class="text-danger" id="confirmMsg" style="font-size: 0.8em;"></em>
-        </div>
+       
         <div class="mt-2">
             <label for="name" class="form-label">First Name:<span><em class="text-danger">*</em></span></label>
             <input type="text" name="firstName" id="firstName" class="form-control" value="<%= user.firstName %>"  required>
@@ -45,7 +37,7 @@
             <input type="email" name="email" id="email" class="form-control" value="<%= user.email %>"  required>
         </div>
         <div class="d-flex justify-content-center mt-4">
-            <button id="submit" class="btn btn-success mx-1" disabled>Submit</button>
+            <button id="submit" class="btn btn-success mx-1">Submit</button>
             <a href="/users/<%= user.id %>" class="btn btn-danger">Cancel</a>
         </div>
     </div>

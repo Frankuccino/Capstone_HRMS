@@ -21,7 +21,7 @@ router.get('/users/form', isLoggedIn, isAccessibleByAdminOnly, userForm);
 router.post('/users', isLoggedIn, isAccessibleByAdminOnly, userValidate, addUser);  
 router.get('/users/:id', isLoggedIn, isAccessibleByCurrent, viewUser);   
 router.get('/users/:id/edit', isLoggedIn, isAccessibleByAdminOnly, editUserForm);
-router.patch('/users/:id', isLoggedIn, isAccessibleByAdminOnly, userValidate, editUser);
+router.patch('/users/:id', isLoggedIn, isAccessibleByAdminOnly, editUser);
 router.delete('/users/:id/delete', isLoggedIn, isAccessibleByAdminOnly, deleteUser);
 router.post('/users/:id/uploadimage', upload.single('file'), uploadImage);
 
