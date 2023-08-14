@@ -105,7 +105,7 @@ exports.editUserForm = async (req,res)=>{
 
 exports.editUser = async (req,res)=>{
   const userId = req.params.id;
-  const user = await User.findByIdAndUpdate(userId, {...req.body.user});
+  const user = await User.findByIdAndUpdate(userId, {...req.body});
   res.redirect(`/users/${userId}`);
 }
 
