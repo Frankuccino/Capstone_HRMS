@@ -9,14 +9,24 @@ const Employee = require('../../models/employee');
 const Transaction = require('../../models/transaction')
 const User = require('../../models/user');
 
+const URI = 'mongodb+srv://frankabad189:AeBgsrTNO2z83i4Z@cluster0.roeuq8h.mongodb.net/?retryWrites=true&w=majority';
+
 // DB Connection
-mongoose.connect('mongodb://127.0.0.1:27017/hrms')
+mongoose.connect(URI)
 .then(()=>{
     console.log('Connection Open.');
 })
 .catch((err)=>{
     console.log(`Error: ${err}`);
 })
+
+// mongoose.connect('mongodb://127.0.0.1:27017/hrms')
+// .then(()=>{
+//     console.log('Connection Open.');
+// })
+// .catch((err)=>{
+//     console.log(`Error: ${err}`);
+// })
 
 
 const activePage = '/employees'

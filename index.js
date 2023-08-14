@@ -68,8 +68,8 @@ app.use((req, res, next) => {
 app.use(textFormatMiddleware);
 
 // Execute Router
-app.use('', dashboardRouter)
 app.use('', employeesRouters)
+app.use('', dashboardRouter)
 app.use('', leaveRouters)
 app.use('', transactionRouters)
 app.use('', usersRouters)
